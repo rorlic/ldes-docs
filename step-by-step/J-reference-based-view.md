@@ -1,7 +1,7 @@
 # TREE Reference-based View
 Although a geo-spatial view is very precise and allows us to retrieve a subset by means of a few bounding boxes, it is non-trivial to calculate these square polygons. Instead, we can use the `tree:EqualToRelation` to create a view based on string, or even better, URI equality.
 
-If our member models are [labelled](https://www.w3.org/TR/rdf-schema/#ch_label) or classified in another way using a (limited set of) string or URI value (e.g. "Brugge", "Gent", \<http://www.brugge.be/\>, \<http://stad.gent\> ...), we can create the buckets labelled 'equal to "Brugge"', 'equal to \<http://stad.gent\>', etc. This allows us to partition our data set using any arbitrary classification.
+If our member models are [labelled](https://www.w3.org/TR/rdf-schema/#ch_label) or classified in another way using a (limited set of) string or URI value (e.g. "Brugge", "Gent", http://www.brugge.be, http://stad.gent ...), we can create the buckets labelled 'equal to "Brugge"', 'equal to http://stad.gent', etc. This allows us to partition our data set using any arbitrary classification.
 
 Example reference-based view:
 ```
