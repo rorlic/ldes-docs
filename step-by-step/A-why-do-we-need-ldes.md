@@ -54,6 +54,9 @@ Enter LDES.
 |does not need to maintain different API versions|does not need to keep up to date<br>with API changes|
 
 ---
+<p align="right">Next: <a href="B-what-is-ldes.md">What is LDES?</a></p>
+
+---
 <small>
 <sup>1</sup>A data publisher is an individual or department making the data available on behalf of the data owner, which is an individual or department that legally owns the data.
 
