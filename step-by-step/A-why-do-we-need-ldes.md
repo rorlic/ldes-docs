@@ -1,10 +1,14 @@
 # Why do we need LDES?
 When a _data owner_ (individual or department with authoritative data rights) wants to make a [data set](https://en.wikipedia.org/wiki/Data_set) available there are two options: a downloadable data file (data dump) or a querying API ([application programming interface](https://en.wikipedia.org/wiki/API)) to retrieve (a part of) the data set yourself.
 
-A data dump is usually in a common format such as CSV ([comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)) while an API is either custom made (proprietary) or some (ad-hoc) standard. The choice between a data dump and an API depends on many factors. Usually for data sets which do not change often a _data publisher_<small><sup>1</sup></small> will use a data dump. For frequently changing data sets that would be impractical, therefore an API is used. Both options have their strengths but unfortunately also weaknesses.
+A data dump is usually in a common format such as CSV ([comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)) while an API is either custom made (proprietary) or some (ad-hoc) standard. The choice between a data dump and an API depends on many factors. Usually for data sets which do not change often a _data publisher_[^1] will use a data dump. For frequently changing data sets that would be impractical, therefore an API is used. Both options have their strengths but unfortunately also weaknesses.
+
+[^1]: A data publisher is an individual or department making the data available on behalf of the data owner, which is an individual or department that legally owns the data.
 
 ## Publishing using a Data Dump
-By definition, a data dump does not allow a _data client_ <small><sup>2</sup></small> to be notified of changes in the data set. In addition, when only a small portion of the data set changes, the data client still needs to obtain the updated version of the whole data set and determine the changes on its end. Alternatively, the data publisher can provide smaller data dumps which only contain the data changes (delta data dumps). However, in this case the data client needs to keep track of its version of the data dump in order to apply the correct delta data dump, or risk missing data changes from a previous delta data dump. Note that the data publisher decides on the frequency of published (regular and delta) data dumps. Therefore, data clients typically have an outdated view on the data set at most points in time.
+By definition, a data dump does not allow a _data client_ [^2] to be notified of changes in the data set. In addition, when only a small portion of the data set changes, the data client still needs to obtain the updated version of the whole data set and determine the changes on its end. Alternatively, the data publisher can provide smaller data dumps which only contain the data changes (delta data dumps). However, in this case the data client needs to keep track of its version of the data dump in order to apply the correct delta data dump, or risk missing data changes from a previous delta data dump. Note that the data publisher decides on the frequency of published (regular and delta) data dumps. Therefore, data clients typically have an outdated view on the data set at most points in time.
+
+[^2]: A data client is an individual, department or even a system using the data.
 
 When offering a data set using a *data set export*, it is the publisher who benefits mostly as the client must overcomes most of the difficulties:
 
@@ -54,10 +58,3 @@ Enter LDES.
 
 ---
 <p align="right">Next: <a href="B-what-is-ldes.md">What is LDES?</a></p>
-
----
-<small>
-<sup>1</sup>A data publisher is an individual or department making the data available on behalf of the data owner, which is an individual or department that legally owns the data.
-
-<sup>2</sup>A data client is an individual, department or even a system using the data.
-</small>
