@@ -185,3 +185,6 @@ As a collection can contain any number of views we can create different structur
 
 ## Summary
 A _node_ is _a page containing data items and relations_. A _relation_ is a _reference to a other node_ possibly containing more data items. A _root node_ is the starting node from which all data items for a data set can be retrieved.
+
+---
+<p align="right">Next: <a href="G-tree-partitioning-types.md">TREE Partitioning Types</a></p>
