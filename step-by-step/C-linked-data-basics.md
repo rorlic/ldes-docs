@@ -178,8 +178,9 @@ Fig 5. Definition and relations of Mickey Mouse combined
 >
 > Mickey's shoes have no identity and are therefore a name-less thing that only makes sense within Mickey's definition. But we do know that this name-less thing is a product of the shoes category and that it is yellow colored.
 
+## Summary
 > [!IMPORTANT]
-> Summarized, Linked data _represents structured data using RDF_ (triples / quads), requires all things to have _unique identifiers_, allows for capturing _semantics using vocabularies or ontologies_ and can be expressed in _various serialization formats_.
+> Linked data _represents structured data using RDF_ (triples / quads), requires all things to have _unique identifiers_, allows for capturing _semantics using vocabularies or ontologies_ and can be expressed in _various serialization formats_.
 
 ---
 <p align="right">Next: <a href="D-tree-specs.md">TREE Specification Basics</a></p>
