@@ -13,3 +13,6 @@ The recommended way is to read the above topics in order, but feel free to skip 
 8. [TREE Time-based View](./H-time-based-view.md)
 9. [TREE Geo-spatial View](./I-geospatial-view.md)
 10. [TREE Reference-based View](./J-reference-based-view.md)
+
+> [!NOTE]
+> This step-by-step guide is currently work-in-progress and will very soon be extended with information on the following topics: retention policies, metadata, client behavior and a further reading section, so stay tuned!
