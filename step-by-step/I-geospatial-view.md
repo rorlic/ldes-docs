@@ -40,3 +40,6 @@ Fig 1. Tiles visualized
 
 ## Summary
 A _geo-spatial view_ allows us to create a _hierarchical structure_ where we can _filter a data set based on containment of data items in a geo-spatial area_, usually a polygon.
+
+---
+<p align="right">Next: <a href="J-reference-based-view.md">TREE Reference-based View</a></p>
