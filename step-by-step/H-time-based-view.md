@@ -82,3 +82,6 @@ Fig 1. Example of time-based structure
 
 ## Summary
 A _time-based view_ allows us to create a _hierarchical structure_ where we can _filter a data set based on a time interval_.
+
+---
+<p align="right">Next: <a href="I-geospatial-view.md">TREE Geospatial View</a></p>
