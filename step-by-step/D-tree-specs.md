@@ -117,3 +117,6 @@ schema:ProductShape
 > In TREE we define a _data set as a `tree:Collection`_ with its predicate _`tree:member` referring to a data item_ and we use the _`tree:shape` predicate to define the data item validation rules_ to which each data item must comply.
 
 The [TREE vocabulary](https://cdn.jsdelivr.net/gh/treecg/specification@master/tree.ttl) formally defines all the concepts in detail.
+
+---
+<p align="right">Next: <a href="E-ldes-specs.md">LDES Specification Basics</a></p>
