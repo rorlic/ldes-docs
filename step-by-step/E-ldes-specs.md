@@ -142,3 +142,6 @@ As you can see in the example above, even the human readable Turtle format is pr
 > The LDES specification defines that an _`ldes:EventStream` contains immutable members_ and communicates to data clients _how versions of a thing can be grouped and sorted_.
 
 The [LDES vocabulary](https://raw.githubusercontent.com/SEMICeu/LinkedDataEventStreams/b9c0d747e8d0cb6cb2b0215c758252cf95c30cda/vocabulary.ttl) formally defines all the concepts in detail.
+
+---
+<p align="right">Next: <a href="F-tree-partitioning.md">TREE Partitioning Basics</a></p>
