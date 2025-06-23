@@ -11,6 +11,9 @@ An [(Event) Stream](https://en.wikipedia.org/wiki/Stream_(computing)) is a conti
 > In essence, a LDES is _an event stream of (full) versions of things, represented as linked data_.
 
 ---
+<p align="right">Next: <a href="C-linked-data-basics.md">Linked Data Basics</a></p>
+
+---
 <small>
 <sup>1</sup>An identifier is preferably globally unique but if multiple identifiers refer to the same physical or conceptual thing, we at least need a way to relate the identifiers.
 </small>
