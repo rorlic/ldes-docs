@@ -1,5 +1,4 @@
 # Why do we need LDES?
-
 When a _data owner_ (individual or department with authoritative data rights) wants to make a [data set](https://en.wikipedia.org/wiki/Data_set) available there are two options: a downloadable data file (data dump) or a querying API ([application programming interface](https://en.wikipedia.org/wiki/API)) to retrieve (a part of) the data set yourself.
 
 A data dump is usually in a common format such as CSV ([comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)) while an API is either custom made (proprietary) or some (ad-hoc) standard. The choice between a data dump and an API depends on many factors. Usually for data sets which do not change often a _data publisher_<small><sup>1</sup></small> will use a data dump. For frequently changing data sets that would be impractical, therefore an API is used. Both options have their strengths but unfortunately also weaknesses.
