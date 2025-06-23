@@ -12,3 +12,6 @@ Basically, a specialized relation _constraints the data items that can be found_
 Since there are many relation types and we can even combine these relation, the possibilities are endless. For example, we could first partition by location (geo-spatial or reference) and then by time. There are even relations that allow filtering on prefix, postfix and sub-string of a string which can be used to build some kind of dictionary.
 
 The most important thing to remember is that relations allow to _prune the search tree_ and effectively allow a data client to _retrieve a subset of the data items_.
+
+---
+<p align="right">Next: <a href="H-time-based-view.md">TREE Time-based View</a></p>

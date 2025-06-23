@@ -10,3 +10,4 @@ The recommended way is to read the above topics in order, but feel free to skip 
 5. [LDES Specification Basics](./E-ldes-specs.md)
 6. [TREE Partitioning Basics](./F-tree-partitioning.md)
 7. [TREE Partitioning Types](./G-tree-partitioning-types.md)
+8. [TREE Time-based View](./H-time-based-view.md)
