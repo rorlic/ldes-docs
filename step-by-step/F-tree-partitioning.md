@@ -19,7 +19,7 @@ block-beta
 Fig 10. Retrieving data set using chunks.
 
 ## Fetching a TREE
-The TREE specification takes a different approach. In that specification, you request a starting page (_root node_). The response contains a number of data items and possibly links to more pages. You request each link referring to another page (_node_), and repeat this recursively for all page until each response contains no more links.
+The TREE specification takes a different approach: any collection that does not fit in one HTTP response must be split into a collection of _nodes_ (pages) which are linked to each other in the content itself. You can retrieve such a collection by requesting a _root node_ (starting page). The response contains a limited number of members (data items) and zero or more links to _subsequent nodes_ (non-root pages). You then request each link referring to another node and repeat this recursively for all nodes until all responses contain no more links.
 
 ```mermaid
 flowchart LR
@@ -42,7 +42,7 @@ Fig 1. Retrieving data set using TREE.
 > [!NOTE]
 > In this example we start from part A, find the links to parts B and C and follow them both. Part B does not contain any links, so there we are done, but part C has a link to part D, so we continue by following the link to D where we find a link to parts E, F and G. After we visit parts E, F and G, which are all dead ends, we are done.
 
-The TREE approach allows us to retrieve all parts as well, but has the benefit that you obtain the _explicit link_ to the next subset of data items and you do not need to calculate it. Because a part can link to many other parts, you can create a hierarchical _tree_. This is where the TREE specification gets its name from. In addition, since a part can link to many parts, we are not restricted in retrieving the data in a linear way but we can benefit from _retrieving the data items in a parallel way_.
+The TREE approach allows us to retrieve all parts as well, but has the benefit that you obtain the _explicit link_ to the next subset of data items and you do not need to calculate it. Because a part can link to many other parts, you can create a hierarchical search _tree_. This is where the TREE specification gets its name from. In addition, since a part can link to many parts, we are not restricted in retrieving the data in a linear way but we can benefit from _retrieving the nodes in a parallel way_.
 
 > [!NOTE]
 > The data publisher decides on the amount of data items returned in each response. This is intentional to keep data publisher's costs better under control. In the end it also does not matter what the chunk size is, as long as you get all the data items that you need.
