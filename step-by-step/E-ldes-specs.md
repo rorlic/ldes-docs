@@ -30,7 +30,7 @@ But, in order to have a history of a thing, we also need to know which version c
 Now, how does a data client know which property to use for grouping (relating) and sorting? To allow this, the LDES specification defines two (optional) predicates on an `ldes:EventStream`: the `ldes:versionOfPath` and the `ldes:timestampPath`. The data publisher can choose the predicates freely but usually the `dct:isVersionOf` and the `dct:created` suffice. 
 
 > [!NOTE]
-> The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value indicating the order in which members are added to the event stream. This implies that each member contains such a value and that no member is added to the event stream with a timestamp earlier that the last published member.
+> The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value (see [ISO 8601 date and time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) indicating the order in which members are added to the event stream. This implies that each member contains such a value and that no member is added to the event stream with a timestamp earlier that the last published member.
 > 
 > A data client needs both predicates to reconstruct the history of things in the correct order, so it is advised to include both.
 
