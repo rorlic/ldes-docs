@@ -19,10 +19,13 @@ The LDES specification defines that a root node can contain a single predicate `
 > [!NOTE]
 > The `ldes:retentionPolicy` can alternatively be supplied on the root node's `tree:viewDescription` instead of on the root node itself, but obviously not on both.
 
-If the entity contains no predicates, no members will be available in the view. Adding predicates allows us to define which members must be retained in the view and will be available. Each predicate helps us to cover some use case: keep members from a fixed point in time, keep members for a fixed time interval, keep a limited number of versions for a member, keep deleted members for a fixed time interval, etc. However, by combining these retention predicates additional use cases are possible. By specifying more retention predicates, typically we retain more members, but some combinations interact and therefore decrease the retained member count.
+If the entity contains no predicates, no members will be available in the view. Adding predicates allows us to define which members must be retained in the view and will be available. Each predicate helps us to cover some use case: keep members from a fixed point in time, keep members for a fixed time interval, keep a limited number of versions for a member, keep deleted members for a fixed time interval, etc. However, by combining these retention predicates additional use cases are possible.
 
 > [!IMPORTANT]
 > We can use _retention policies_ to _manage the members that are available in a view_ and _keep the storage cost under control_ by actually removing members from a data set for which no retention policy applies.
+>
+> By adding (combining) retention predicates, typically we retain more members, but some combinations interact and therefore decrease the retained member count.
+
 
 > [!NOTE]
 > In previous LDES versions, the specification defined an abstract base class `ldes:RetentionPolicy` and three concrete types of retention policies to help with specific retention use cases: `ldes:PointInTimePolicy`, `ldes:DurationAgoPolicy` and `ldes:LatestVersionSubset`. These policies can easily be mapped onto the retention predicates in the current LDES specification.

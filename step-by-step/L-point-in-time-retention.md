@@ -1,7 +1,7 @@
-# LDES Point-in-time retention
+# LDES Point-in-time Retention
 One of the most simple use cases for retention is the availability of members after some absolute point in time which marks some event, some change in legislation, etc.
 
-To define this retention, the LDES specification defines a `ldes:startingFrom` predicate specifying the absolute point in time as a `xsd:dateTime` value. Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is equal or higher than this absolute value will be available in the view (unless excluded by another retention policy predicate).
+To define this retention, the LDES specification defines a `ldes:startingFrom` predicate specifying the absolute point in time as a `xsd:dateTime` value. Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this absolute value_ will be retained (available) in the view.
 
 By default, the retention policy uses the `ldes:timestampPath` to find the member's timestamp value to compare with the absolute value. You can override this by providing a `ldes:timestampPath` predicate on the retention policy with a different property path.
 
@@ -32,4 +32,6 @@ disney:point-in-time a tree:Node ;
 > The above `disney:point-in-time` view applied to [this example](./E-ldes-specs.md#naming-members) would only contain members `wiki:Minnie_Mouse#v2` and `wiki:Mickey_Mouse#v2` because the other two members have a `dct:created` value which is lower than our `ldes:startingFrom` value.
 
 > [!IMPORTANT]
-> We can use a _retention policy with a `ldes:startingFrom` predicate_ to _keep all members on or after an absolute date and time_.
+> We can use a _retention policy with a `ldes:startingFrom` predicate_ to _keep (retain) all members on or after an absolute date and time_.
+> 
+> When combined with other retention predicates, this retention predicate works in a _negative way_: it defines the absolute time _before_ which members are _not retained_.
