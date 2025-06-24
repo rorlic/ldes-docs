@@ -65,6 +65,9 @@ OK, that looks good except for the fact that our members have a different number
 
 The TREE specification defines a `tree:shape` predicate on the `tree:Collection`. This allows us to add a so-called [SHACL](https://w3c.github.io/data-shapes/shacl/) shape, which defines some rules to indicate what predicates a model can or must contain, what type is acceptable for a predicate and how many occurrences a predicate can have. We can use a SHACL shape validator to validate that a model conforms to those rules.
 
+> [!NOTE]
+> The `tree:shape` can also be used to discover the data model and use it for source selection, i.e. determine if the LDES offers the required data or a different LDES should be retrieved.
+
 Explaining SHACL will take us too far but here is an example to give you an idea what it looks like.
 
 ```
