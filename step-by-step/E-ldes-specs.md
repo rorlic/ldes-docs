@@ -1,7 +1,7 @@
 # LDES Specification Basics
 The [LDES specification](https://w3id.org/ldes/specification) is built on top of the [TREE specification](https://w3id.org/tree/specification), which defines some fundamental concepts on which LDES is built.
 
-The LDES specification defines an `ldes:EventStream` to be a `tree:Collection` whose members are _immutable_. This basically means that an event stream contains things that do not change, that is, _versions_ of an object. In other words, an LDES is an append-only collection of immutable (version) objects, which represents their subsequent states, or put differently, the history of these things. 
+The LDES specification defines an `ldes:EventStream` to be a `tree:Collection` whose members are _immutable_. This basically means that an event stream contains things that do not change, that is, _versions_ of an object, and that these object versions cannot be updated or deleted from the LDES. In other words, an LDES is an append-only collection of immutable (version) objects, which represents their subsequent states, or put differently, the history of these things.
 
 ## Empty LDES
 As you can imagine, an empty LDES looks similar to an empty TREE collection, except for its type:
@@ -30,7 +30,9 @@ But, in order to have a history of a thing, we also need to know which version c
 Now, how does a data client know which property to use for grouping (relating) and sorting? To allow this, the LDES specification defines two (optional) predicates on an `ldes:EventStream`: the `ldes:versionOfPath` and the `ldes:timestampPath`. The data publisher can choose the predicates freely but usually the `dct:isVersionOf` and the `dct:created` suffice. 
 
 > [!NOTE]
-> Only if both predicates are provided a data client can reconstruct the history of things in the correct order.
+> The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value indicating the order in which members are added to the event stream. This implies that each member contains such a value and that no member is added to the event stream with a timestamp earlier that the last published member.
+> 
+> A data client needs both predicates to reconstruct the history of things in the correct order, so it is advised to include both.
 
 ```
 @prefix tree: <https://w3id.org/tree#> .
