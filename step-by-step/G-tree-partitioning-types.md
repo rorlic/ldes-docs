@@ -14,7 +14,12 @@ Since there are many relation types and we can even combine these relation, the 
 > [!NOTE]
 > The TREE specification allows more than one root node and therefore multiple partitions on the same collection. A data publisher can offer partitions with different pages sizes or different search trees by using these special relation types.
 
-The most important thing to remember is that relations allow to _prune the search tree_ and effectively allow a data client to _retrieve a subset of the data items_.
+## Summary
+> [!IMPORTANT]
+> Relations allow to _prune the search tree_ and effectively allow a data client to _retrieve a subset of the data items_.
+
+> [!NOTE]
+> A _root node_ can also contain an alternative way to retrieve a subset of the data without traversing the TREE. It can contain one or more triples with a `tree:search` predicate whose object describes a _search form_. Such a search form which is a `hydra:iriTemplate` describing a number of parameters that can be filled in to result in a `tree:Node` IRI. This allows a client to calculate the direct link to a `tree:Node`.
 
 ---
 <p align="right">Next: <a href="H-time-based-view.md">TREE Time-based View</a></p>

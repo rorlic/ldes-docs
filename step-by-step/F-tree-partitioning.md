@@ -48,7 +48,7 @@ The TREE approach allows us to retrieve all parts as well, but has the benefit t
 > The data publisher decides on the amount of data items returned in each response. This is intentional to keep data publisher's costs better under control. In the end it also does not matter what the chunk size is, as long as you get all the data items that you need.
 
 ## Nodes and Relations
-The TREE specification defines a `tree:Node` type (a _node_) to have a `tree:relation` predicate of type `tree:Relation` (a _relation_). A relation has a `tree:node` predicate that is a link (URL) to another node. A `tree:Collection` has a predicate `tree:view` that points to the current `tree:Node` (the part we requested), but we may only find it on the root `tree:Node` of a collection.
+The TREE specification defines a `tree:Node` type (a _node_) to have a `tree:relation` predicate of type `tree:Relation` (a _relation_). A relation has a `tree:node` predicate that is a link (URL) to another node. A `tree:Collection` has a predicate `tree:view` that points to the current `tree:Node` (the part we requested).
 
 ```
 @prefix tree: <https://w3id.org/tree#> .
@@ -129,14 +129,12 @@ flowchart LR
     person(("`schema:
     Person`"))
     disney -- a --> collection
+    disney -- view --> partB
     partB -- a --> node
     disney -- tree:member --> donald
     donald -- a --> person
 ```
 Fig 3. Tree node B
-
-> [!NOTE]
-> Because the collection is missing a triple with a `tree:view` predicate, the collection and the node (part) are disconnected. Obviously, it is better to always include the `tree:view` triple (e.g.  `wiki:disney tree:view disney:partB .`).
 
 ```
 @prefix tree: <https://w3id.org/tree#> .
@@ -181,10 +179,14 @@ flowchart LR
 ```
 Fig 4. Tree node C
 
-As a collection can contain any number of views we can create different structures that allow finding the data items in different ways.
+> [!NOTE]
+> As a collection can contain any number of views we can create different structures that allow finding the data items in different ways.
+>
+> A _root node_ can also contain a `tree:viewDescription` property, which is an entity that further describes a TREE view, e.g. with a `dcat:Distribution` predicate (see [catalog information](https://semiceu.github.io/DCAT-AP/releases/3.0.0/)).
 
 ## Summary
-A _node_ is _a page containing data items and relations_. A _relation_ is a _reference to a other node_ possibly containing more data items. A _root node_ is the starting node from which all data items for a data set can be retrieved.
+> [!IMPORTANT]
+> A _node_ is _a page containing data items and relations_. A _relation_ is a _reference to a other node_ possibly containing more data items. A _root node_ is the starting node from which all data items for a data set can be retrieved. All other nodes are _subsequent nodes_. A _search form_ allows to jump to subsequent nodes offering direct access to a subset of the collection.
 
 ---
 <p align="right">Next: <a href="G-tree-partitioning-types.md">TREE Partitioning Types</a></p>
