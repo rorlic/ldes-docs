@@ -11,6 +11,9 @@ Basically, a specialized relation _constraints the data items that can be found_
 
 Since there are many relation types and we can even combine these relation, the possibilities are endless. For example, we could first partition by location (geo-spatial or reference) and then by time. There are even relations that allow filtering on prefix, postfix and sub-string of a string which can be used to build some kind of dictionary.
 
+> [!NOTE]
+> The TREE specification allows more than one root node and therefore multiple partitions on the same collection. A data publisher can offer partitions with different pages sizes or different search trees by using these special relation types.
+
 The most important thing to remember is that relations allow to _prune the search tree_ and effectively allow a data client to _retrieve a subset of the data items_.
 
 ---
