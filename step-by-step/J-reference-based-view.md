@@ -71,3 +71,6 @@ Fig 1. Example Reference-based View
 
 > [!IMPORTANT]
 > A _reference-based view_ allows us to create a (shallow) _hierarchical structure_ where we can _filter a data set based on some classification_.
+
+---
+<p align="right">Next: <a href="K-retention-policies.md">LDES Retention Policies</a></p>
