@@ -50,6 +50,9 @@ The TREE approach allows us to retrieve all parts as well, but has the benefit t
 ## Nodes and Relations
 The TREE specification defines a `tree:Node` type (a _node_) to have a `tree:relation` predicate of type `tree:Relation` (a _relation_). A relation has a `tree:node` predicate that is a link (URL) to another node. A `tree:Collection` has a predicate `tree:view` that points to the current `tree:Node` (the part we requested).
 
+> [!NOTE]
+> Because the object of a `tree:view` is by definition a `tree:Node` you do not need to include a triple specifying this type (i.e. you can drop the triple `<> a tree:Node`) and vice versa, because a page must contain at most one `tree:Node` you can assume that this entity is the `tree:view` of the collection, so you can omit that triple (i.e. `<collection> tree:view <>`).
+
 ```
 @prefix tree: <https://w3id.org/tree#> .
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
