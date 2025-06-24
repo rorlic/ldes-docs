@@ -77,7 +77,6 @@ Now, before we add members to an LDES we need to look into how we name and repre
 
 For example, given a state object identified by some URI such as `http://example.org/thing/1` and given some version value such as `2000-01-01T15:00:00` we typically create a member identifier by appending a separator ('#' or similar) and the timestamp value to the URI, resulting in `http://example.org/thing/1#2000-01-01T15:00:00`.
 
-<a name="full-example"></a>
 ```
 @prefix tree: <https://w3id.org/tree#> .
 @prefix ldes: <https://w3id.org/ldes#> .

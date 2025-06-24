@@ -1,0 +1,35 @@
+# LDES Point-in-time retention
+One of the most simple use cases for retention is the availability of members after some absolute point in time which marks some event, some change in legislation, etc.
+
+To define this retention, the LDES specification defines a `ldes:startingFrom` predicate specifying the absolute point in time as a `xsd:dateTime` value. Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is equal or higher than this absolute value will be available in the view (unless excluded by another retention policy predicate).
+
+By default, the retention policy uses the `ldes:timestampPath` to find the member's timestamp value to compare with the absolute value. You can override this by providing a `ldes:timestampPath` predicate on the retention policy with a different property path.
+
+> [!NOTE]
+> This retention is identical to the obsolete retention policy of type `ldes:PointInTimePolicy`, which has a predicate `ldes:pointInTime` whose value is also a timestamp (`xsd:dateTime`). A data client must interpret this predicate as the `ldes:startingFrom` predicate value and map it if needed.
+
+```
+@prefix tree:      <https://w3id.org/tree#> .
+@prefix ldes:      <https://w3id.org/ldes#> .
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix schema:    <http://schema.org/> .
+@prefix dct:       <http://purl.org/dc/terms/> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+@prefix wiki:      <http://en.wikipedia.org/wiki/> .
+@prefix disney:    <http://en.wikipedia.org/wiki/disney/> .
+wiki:disney a ldes:EventStream ;
+  tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
+  ldes:versionOfPath dct:isVersionOf ;
+  ldes:timestampPath dct:created ;
+  tree:view disney:point-in-time .
+disney:point-in-time a tree:Node ;
+  ldes:retentionPolicy [
+    ldes:startingFrom "1950-01-01T00:00:00Z"^^xsd:dateTime 
+  ] .
+```
+
+> [!NOTE]
+> The above `disney:point-in-time` view applied to [this example](./E-ldes-specs.md#naming-members) would only contain members `wiki:Minnie_Mouse#v2` and `wiki:Mickey_Mouse#v2` because the other two members have a `dct:created` value which is lower than our `ldes:startingFrom` value.
+
+> [!IMPORTANT]
+> We can use a _retention policy with a `ldes:startingFrom` predicate_ to _keep all members on or after an absolute date and time_.

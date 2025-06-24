@@ -28,3 +28,6 @@ If the entity contains no predicates, no members will be available in the view. 
 > In previous LDES versions, the specification defined an abstract base class `ldes:RetentionPolicy` and three concrete types of retention policies to help with specific retention use cases: `ldes:PointInTimePolicy`, `ldes:DurationAgoPolicy` and `ldes:LatestVersionSubset`. These policies can easily be mapped onto the retention predicates in the current LDES specification.
 
 We will cover these and some other retention use cases in subsequent steps in this guide.
+
+---
+<p align="right">Next: <a href="L-point-in-time-retention.md">LDES Point-in-time Retention</a></p>
