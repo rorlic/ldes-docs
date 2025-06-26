@@ -4,7 +4,10 @@ Instead of using an absolute timestamp or relative time duration, we can retain 
 This policy is based on the assumption that more recent data is the most relevant one. As explained in the [LDES Specification Basics](./E-ldes-specs.md) an LDES contains members which are in essence a full state representation at some point in time of an entity. All the state changes of an entity are related to each other by means of the LDES `ldes:versionOfPath` predicate path. In other words, all the state changes of an entity have the same value for this predicate path, which is the identity of the entity.
 
 ## Version-subset Retention
-The LDES specification defines a `ldes:versionAmount` predicate specifying an amount (`xsd:integer`) of most recent versions to retain per entity. Conceptually, members are grouped by their `ldes:versionOfPath` predicate path value and then ordered by their `ldes:timestampPath` predicate path value after which the specified amount of newer entity versions is retained while the other, older entity versions, are dropped.
+The LDES specification defines a `ldes:versionAmount` predicate specifying an amount (`xsd:integer`) of most recent versions to retain per entity. Conceptually, members are grouped by their `ldes:versionOfPath` predicate path value and then ordered (descending) by their `ldes:timestampPath` predicate path value after which the specified amount of newer entity versions is retained while the other, older entity versions, are dropped.
+
+> [!IMPORTANT]
+> Members whose _0-based index_ in the above grouped and sorted subsets is _lower than the number of versions to keep_ will be retained (available) in the view.
 
 > [!TIP]
 > This retention is a _simplification_ of the obsolete retention policy of type `ldes:LatestVersionSubset`, which has an optional `ldes:amount` predicate (defaulting to one) specifying the number (`xsd:integer` larger than zero) of latest versions to keep per entity. A data client must interpret this predicate as the `ldes:versionAmount` predicate value and map it if needed.
@@ -72,8 +75,45 @@ The above `disney:latest-state` view applied to [this example](./E-ldes-specs.md
 > [!NOTE]
 > Although this policy only keeps one version of an entity, the LDES members are still a _version_ of an entity and not the entity itself. As always, when a data client uses an LDES, the members need to be converted into their entity further downstream.
 
+## Time-limited Retention
+The retentions described above keep one or more versions of an entity in a view, but they do so for an unlimited period of time, i.e. the life-time of the event stream. Therefore, an LDES can still grow without limit if the number of entities increases.
+
+In addition, there are use cases where data freshness is important and it may be pointless even to keep these versions for more than some period of time, e.g. keep the last sensor observation of each sensor in the stream for maximum 1 hour.
+
+The LDES specification defines a `ldes:versionDuration` predicate specifying a duration (`xsd:duration`). This duration is subtracted from the _current date and time_ to calculate the cutoff point that should be used to further limit the entity versions to keep for the [Version-subset Retention](#version-subset-retention) (and consequently the [Current-state Retention](#current-state-retention)).
+
+> [!IMPORTANT]
+> Members that are retained after applying the version-subset condition and whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher_ than the _cutoff point_ will be retained (available) in the view.
+
+```
+@prefix tree:      <https://w3id.org/tree#> .
+@prefix ldes:      <https://w3id.org/ldes#> .
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix schema:    <http://schema.org/> .
+@prefix dct:       <http://purl.org/dc/terms/> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:        <https://example.org/> .
+@prefix sosa:      <http://www.w3.org/ns/sosa/> .
+
+ex:observations a ldes:EventStream ;
+  tree:shape [ a sh:NodeShape; sh:targetClass sosa:Observation ] ;
+  ldes:versionOfPath dct:isVersionOf ;
+  ldes:timestampPath sosa:resultTime ;
+  tree:view ex:latest-hour .
+
+ex:latest-hour a tree:Node ;
+  ldes:retentionPolicy [
+    ldes:versionAmount 1;
+    ldes:versionDuration "PT1H"^^<xsd:duration>
+  ] .
+```
+
+In this example, all entities are of type `sosa:Observation` and have a `sosa:resultTime` which is the result time of the observation and a `dct:isVersionOf` value which represents the sensor. The retention will only keep the last observation of a sensor, which is a member with the highest `sosa:resultTime` for each distinct `dct:isVersionOf` value, but only if it happened at most 1 hour ago, i.e. its `sosa:resultTime` is greater or equal than now minus one hour.
+
 ## Summary
 > [!IMPORTANT]
 > We can use a _retention policy with a `ldes:versionAmount` predicate_ to _keep a number of most recent versions of each entity_.
 >
 > We can use a _latest-state retention policy_ (with `ldes:versionAmount` set to 1) to _retain only the latest version of each entity_, which in essence just keeps the current/latest state of a data set, without the history of changes.
+>
+> We can combine both these policies with a `ldes:versionDuration` to further limit the versions retained based on a duration against the current date and time, which basically creates a sliding time window.
