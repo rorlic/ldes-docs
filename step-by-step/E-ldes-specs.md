@@ -32,8 +32,7 @@ Now, how does a data client know which property to use for grouping (relating) a
 > [!TIP]
 > A data client needs both predicates to reconstruct the history of things in the correct order, so it is advised to include both.
 
-> [!NOTE]
-> The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value (see [ISO 8601 date and time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) indicating the order in which members are added to the event stream.
+The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value (see [ISO 8601 date and time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) indicating the order in which members are added to the event stream.
 
 > [!NOTE]
 > Each member should contain a value for the `ldes:timestampPath` predicate path and no member should be added to the event stream with a timestamp earlier that the last published member.
