@@ -15,6 +15,7 @@ The recommended way is to read the above topics in order, but feel free to skip 
 10. [TREE Reference-based View](./J-reference-based-view.md)
 11. [LDES Retention Policies](./K-retention-policies.md)
 12. [LDES Point-in-time Retention](./L-point-in-time-retention.md)
+13. [LDES Time-based Retention](./M-time-based-retention.md)
 
 > [!NOTE]
-> This step-by-step guide is currently work-in-progress and will very soon be extended with information on the following topics: retention policies, metadata, client behavior and a further reading section, so stay tuned!
+> This step-by-step guide is currently work-in-progress and will very soon be extended with information on the following topics: retention policies, metadata, client behavior, transactions and a further reading section, so stay tuned!
