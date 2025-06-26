@@ -44,6 +44,7 @@ The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/s
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix schema: <http://schema.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+
 wiki:disney a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
   ldes:versionOfPath dct:isVersionOf ;
@@ -88,6 +89,7 @@ For example, given a state object identified by some URI such as `http://example
 @prefix schema: <http://schema.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
 wiki:disney a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
   ldes:versionOfPath dct:isVersionOf ;
@@ -95,6 +97,7 @@ wiki:disney a ldes:EventStream ;
   tree:member
      wiki:Mickey_Mouse#v1, wiki:Minnie_Mouse#v1, 
      wiki:Minnie_Mouse#v2, wiki:Mickey_Mouse#v2 .
+
 wiki:Mickey_Mouse#v1 a schema:Person ;
   dct:isVersionOf wiki:Mickey_Mouse ;
   dct:created "1928-01-15T00:00:00"^^xsd:dateTime ;
@@ -103,10 +106,12 @@ wiki:Mickey_Mouse#v1 a schema:Person ;
     [ a schema:Product ; schema:category "gloves" ; schema:color "yellow" ], 
     [ a schema:Product ; schema:category "trousers" ; schema:color "red" ], 
     [ a schema:Product ; schema:category "shoes" ; schema:color "brown" ] .
+
 wiki:Minnie_Mouse#v1 a schema:Person ;
   dct:isVersionOf wiki:Minnie_Mouse ;
   dct:created "1928-05-15T00:00:00"^^xsd:dateTime ;
   schema:gender "female" .
+
 wiki:Minnie_Mouse#v2 a schema:Person ;
   dct:isVersionOf wiki:Minnie_Mouse ;
   dct:created "2000-01-01T00:00:00"^^xsd:dateTime ;
@@ -115,6 +120,7 @@ wiki:Minnie_Mouse#v2 a schema:Person ;
     [ a schema:Product ; schema:category "hair ribbon" ; schema:color "red" ], 
     [ a schema:Product ; schema:category "dress" ; schema:color "red", "white" ], 
     [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] .
+    
 wiki:Mickey_Mouse#v2 a schema:Person ;
   dct:isVersionOf wiki:Mickey_Mouse ;
   dct:created "1980-01-01T00:00:00"^^xsd:dateTime ;

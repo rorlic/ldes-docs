@@ -64,13 +64,17 @@ Because the `tree:view` entity is by definition a `tree:Node` you do not need to
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
 @prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+
 wiki:disney a tree:Collection ;
   tree:view disney:partA ;
   tree:member wiki:Mickey_Mouse, wiki:Minnie_Mouse .
+
 disney:partA a tree:Node ;
   tree:relation [ a tree:Relation; tree:node disney:partB ] .
   tree:relation [ a tree:Relation; tree:node disney:partC ] .
+
 wiki:Mickey_Mouse a schema:Person .
+
 wiki:Minnie_Mouse a schema:Person .
 ```
 
@@ -117,9 +121,12 @@ Fig 2. Tree node A (starting node)
 @prefix schema: <http://schema.org/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+
 wiki:disney a tree:Collection ;
   tree:member wiki:Donald_Duck .
+
 disney:partB a tree:Node .
+
 wiki:Donald_Duck a schema:Person .
 ```
 
@@ -151,11 +158,14 @@ Fig 3. Tree node B
 @prefix schema: <http://schema.org/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+
 wiki:disney a tree:Collection ;
   tree:view disney:partC ;
   tree:member wiki:Goofy .
+
 disney:partC a tree:Node ;
   tree:relation [ a tree:Relation; tree:node disney:partD ] .
+  
 wiki:Goofy a schema:Person .
 ```
 

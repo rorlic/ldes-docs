@@ -14,8 +14,10 @@ Node `disney:by-time` (the time-based view):
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+
 wiki:disney a tree:Collection ;
   tree:view disney:by-time .
+
 disney:by-time a tree:Node ;
   tree:relation
       [ a tree:GreaterThanOrEqualRelation; tree:node disney:1900 ;
@@ -35,8 +37,10 @@ Node `disney:1900` (all Disney figures 'born' in the previous century):
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+
 wiki:disney a tree:Collection ;
   void:subset disney:1900 .
+
 disney:1900 a tree:Node ;
   tree:relation
       [ a tree:GreaterThanOrEqualRelation; tree:node disney:1928 ;
@@ -52,11 +56,15 @@ Node `disney:1928` (all Disney figures 'born' in 1928):
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+
 wiki:disney a tree:Collection ;
   void:subset disney:1928 ;
   tree:member wiki:Mickey_Mouse, wiki:Minnie_Mouse .
+
 disney:1928 a tree:Node  .
+
 wiki:Mickey_Mouse a schema:Person ; schema:birthDate "1928-11-18"^^xsd:date.
+
 wiki:Minnie_Mouse a schema:Person ; schema:birthDate "1928-11-18"^^xsd:date .
 ```
 
