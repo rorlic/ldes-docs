@@ -3,7 +3,10 @@ Another typical use case for retention is the availability of members for a rela
 
 Instead of using an absolute point-in-time, this policy uses a dynamic point-in-time as a cutoff point on which members to keep and which to remove from the view. This dynamic point is simply some period of time before the `ldes:timestamp` of the latest published member, effectively creating a sliding time-window as members are added.
 
-To define this retention, the LDES specification defines a `ldes:fullLogDuration` predicate specifying a duration (`xsd:duration` - see [ISO 8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)). This duration is subtracted from the last member's timestamp to calculate the dynamic cutoff point. Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this dynamic value_ will be retained (available) in the view.
+To define this retention, the LDES specification defines a `ldes:fullLogDuration` predicate specifying a duration (`xsd:duration` - see [ISO 8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)). This duration is subtracted from the last member's timestamp to calculate the dynamic cutoff point.
+
+> [!IMPORTANT]
+> Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this dynamic value_ will be retained (available) in the view.
 
 > [!TIP]
 > This retention is _similar_ to the obsolete retention policy of type `ldes:DurationAgoPolicy`, which has a predicate `tree:value` whose value is also a duration value (`xsd:duration`). A data client must interpret this predicate as the `ldes:fullLogDuration` predicate value and map it if needed.
@@ -41,8 +44,22 @@ The above `disney:sliding-time-window` view applied to [this example](./E-ldes-s
 
 > [!IMPORTANT]
 > We can use a _retention policy with a `ldes:fullLogDuration` predicate_ to _keep (retain) all members on or after a time period relative before the last published member_.
+
+> [!NOTE]
+> This retention predicate is _only_ influenced by the `ldes:startingFrom` predicate: if that _absolute timestamp falls within the relative time period_ before the last member's timestamp then those members before this absolute timestamp are _not retained_.
+> 
+> The reason is that the two following conditions need to be checked:
+> 
+> * C1: Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this absolute value_ will be retained (available) in the view.
+> * C2: Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this dynamic value_ will be retained (available) in the view.
 >
-> This retention predicate is only influenced by the `ldes:startingFrom` predicate: if that _absolute timestamp falls within the relative time period_ before the last member's timestamp then those members before this absolute timestamp are _not retained_.
+> Basically, there are only two options:
+> 1. the absolute timestamp falls before the dynamic cutoff point, OR
+> 2. the absolute timestamp falls on or after the dynamic cutoff point
+>
+> In the first case, the absolute value has no effect on which members are retained or not (C2), while in the second case, the members between the cutoff point an the absolute timestamp are _not_ retained by the first condition above (C1).
+>
+> Technically speaking, the absolute timestamp can be a future date and in that case, by definition, it is greater than the last member's timestamp and therefore falls behind the relative time period. In this case, the first condition (C1) still applies and the second condition (C2) does not, which results in an empty view until the absolute moment in time.
 
 ---
 <p align="right">Next: <a href="N-version-based-retention.md">LDES Version-based Retention</a></p>

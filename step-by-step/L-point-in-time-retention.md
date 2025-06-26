@@ -1,7 +1,10 @@
 # LDES Point-in-time Retention
 One of the most simple use cases for retention is the availability of members after some absolute point in time which marks some event, some change in legislation, etc.
 
-To define this retention, the LDES specification defines a `ldes:startingFrom` predicate specifying the absolute point in time as a `xsd:dateTime` value. Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this absolute value_ will be retained (available) in the view.
+To define this retention, the LDES specification defines a `ldes:startingFrom` predicate specifying the absolute point in time as a `xsd:dateTime` value.
+
+> [!IMPORTANT]
+> Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this absolute value_ will be retained (available) in the view.
 
 
 > [!TIP]
@@ -33,8 +36,9 @@ The above `disney:point-in-time` view applied to [this example](./E-ldes-specs.m
 
 > [!IMPORTANT]
 > We can use a _retention policy with a `ldes:startingFrom` predicate_ to _keep (retain) all members on or after an absolute date and time_.
->
-> When combined with other retention predicates, this retention predicate works in a _negative way_: it defines the absolute time _before_ which members are _not retained_.
+
+> [!TIP]
+> Technically speaking, the absolute timestamp could be a value in the future and until that moment the view will contain no members. A possible use case is that a view contains members after some future legislation date, or members representing future car models or accessories, future prices, etc.
 
 ---
 <p align="right">Next: <a href="M-time-based-retention.md">LDES Time-based Retention</a></p>
