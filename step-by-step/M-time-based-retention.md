@@ -37,7 +37,7 @@ disney:sliding-time-window a tree:Node ;
   ] .
 ```
 
-The above `disney:point-in-time` view applied to [this example](./E-ldes-specs.md#naming-members) would only contain member `wiki:Minnie_Mouse#v2` (last published member) because any member with a `dct:created` value before its timestamp minus 10 years is removed. This remaining member will never be removed (as it is the last published one).
+The above `disney:sliding-time-window` view applied to [this example](./E-ldes-specs.md#naming-members) would only contain member `wiki:Minnie_Mouse#v2` (last published member) because any member with a `dct:created` value before its timestamp minus 10 years is removed. This remaining member will never be removed (as it is the last published one).
 
 > [!IMPORTANT]
 > We can use a _retention policy with a `ldes:fullLogDuration` predicate_ to _keep (retain) all members on or after a time period relative before the last published member_.
