@@ -16,9 +16,8 @@ The LDES specification defines a `ldes:versionAmount` predicate specifying an am
 > Both the `ldes:versionOfPath` and `ldes:timestampPath` predicates _can not be redefined_ on the policy level anymore.
 > 
 > In addition, `ldes:versionKey` is _not supported_ anymore.
-
-> [!NOTE]
-> As the `ldes:versionAmount` predicate is either present with a value or not at all and there is no more type indicating that it is a `ldes:LatestVersionSubset`, there is no more default applicable, therefore you explicitly need to set a value for `ldes:versionAmount`.
+>
+> As opposed to the obsolete `ldes:amount` predicate, the `ldes:versionAmount` predicate does not and can not have a default value, therefore you explicitly need to set a value for `ldes:versionAmount`.
 
 ```
 @prefix tree:      <https://w3id.org/tree#> .
