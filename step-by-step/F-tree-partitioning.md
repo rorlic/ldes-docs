@@ -39,8 +39,7 @@ flowchart LR
 ```
 Fig 1. Retrieving data set using TREE.
 
-> [!NOTE]
-> In this example we start from part A, find the links to parts B and C and follow them both. Part B does not contain any links, so there we are done, but part C has a link to part D, so we continue by following the link to D where we find a link to parts E, F and G. After we visit parts E, F and G, which are all dead ends, we are done.
+In this example we start from part A, find the links to parts B and C and follow them both. Part B does not contain any links, so there we are done, but part C has a link to part D, so we continue by following the link to D where we find a link to parts E, F and G. After we visit parts E, F and G, which are all dead ends, we are done.
 
 The TREE approach allows us to retrieve all parts as well, but has the benefit that you obtain the _explicit link_ to the next subset of data items and you do not need to calculate it. Because a part can link to many other parts, you can create a hierarchical search _tree_. This is where the TREE specification gets its name from. In addition, since a part can link to many parts, we are not restricted in retrieving the data in a linear way but we can benefit from _retrieving the nodes in a parallel way_.
 
@@ -48,11 +47,18 @@ The TREE approach allows us to retrieve all parts as well, but has the benefit t
 > The data publisher decides on the amount of data items returned in each response. This is intentional to keep data publisher's costs better under control. In the end it also does not matter what the chunk size is, as long as you get all the data items that you need.
 
 ## Nodes and Relations
-The TREE specification defines a `tree:Node` type (a _node_) to have a `tree:relation` predicate of type `tree:Relation` (a _relation_). A relation has a `tree:node` predicate that is a link (URL) to another node. A `tree:Collection` has a predicate `tree:view` that points to the current `tree:Node` (the part we requested).
+The TREE specification defines a `tree:Node` type (a _node_) to have a `tree:relation` predicate of type `tree:Relation` (a _relation_). A relation has a `tree:node` predicate that is a link (URL) to another node.
 
-> [!NOTE]
-> Because the object of a `tree:view` is by definition a `tree:Node` you do not need to include a triple specifying this type (i.e. you can drop the triple `<> a tree:Node`) and vice versa, because a page must contain at most one `tree:Node` you can assume that this entity is the `tree:view` of the collection, so you can omit that triple (i.e. `<collection> tree:view <>`).
+A `tree:Collection` has a predicate `tree:view` that points to the current `tree:Node` (the part we requested).
 
+Because the `tree:view` entity is by definition a `tree:Node` you do not need to include a triple specifying this type (i.e. you can drop the triple `<> a tree:Node`). Vice versa, because a page can contain at most one `tree:Node` you can assume that this entity is the `tree:view` of the collection, so you can omit that triple (i.e. `<collection> tree:view <>`). However, if the collection response does not contain a `tree:Node` then a `<collection> tree:view <root-node>` triple is required in order for a data client to be able to retrieve the root node. Obviously, you need to provide at least one of the triples to allow determining both the collection and node entities.
+
+> [!TIP]
+> A collection can contain any number of views, therefore we can create different structures that allow finding all the data items in different ways. Obviously, this requires a data client to select the appropriate view to follow, e.g. based on the SHACL shape.
+
+> [!TIP]
+> A _root node_ can also contain a `tree:viewDescription` property, which is an entity that further describes a TREE view, e.g. with a `dcat:Distribution` predicate (see [catalog information](https://semiceu.github.io/DCAT-AP/releases/3.0.0/)).
+> 
 ```
 @prefix tree: <https://w3id.org/tree#> .
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
@@ -181,11 +187,6 @@ flowchart LR
     goofy -- a --> person
 ```
 Fig 4. Tree node C
-
-> [!NOTE]
-> As a collection can contain any number of views we can create different structures that allow finding the data items in different ways.
->
-> A _root node_ can also contain a `tree:viewDescription` property, which is an entity that further describes a TREE view, e.g. with a `dcat:Distribution` predicate (see [catalog information](https://semiceu.github.io/DCAT-AP/releases/3.0.0/)).
 
 ## Summary
 > [!IMPORTANT]

@@ -77,8 +77,7 @@ flowchart LR
 ```
 Fig 1. Example of time-based structure
 
-> [!NOTE]
-> In this example we create a time-based view starting from a century and then by year. We could also create buckets for each decade, e.g. 1920-1930, 1930-1940, etc., or even buckets of non-equal size, e.g. 1950-1970, 1970-2000. Because we specify the boundaries explicitly a data client can determine the exact buckets that are needed.
+In this example we create a time-based view starting from a century and then by year. We could also create buckets for each decade, e.g. 1920-1930, 1930-1940, etc., or even buckets of non-equal size, e.g. 1950-1970, 1970-2000. Because we specify the boundaries explicitly a data client can determine the exact buckets that are needed.
 
 > [!IMPORTANT]
 > A _time-based view_ allows us to create a _hierarchical structure_ where we can _filter a data set based on a time interval_.

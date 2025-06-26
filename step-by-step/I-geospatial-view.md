@@ -7,8 +7,7 @@ To use this relation, we need to use a predicate of the data item (or from an in
 
 A tiling system basically means that we start with the world all in one tile. We then divide that top-level tile into four smaller tiles of equal size by dividing both axis in two equal parts. We then sub-divide the tiles at this level in the same way and keep doing that until we have a tiles at the appropriate [zoom level](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Zoom_levels). Typically, a zoom level between 13 and 15 is adequate to refer to parts of a city or a small community.
 
-> [!NOTE]
-> Creating a geo-spatial view by hand is pretty hard, so here is an example of an [existing geo-spatial view](https://brugge-ldes.geomobility.eu/observations/by-location). If you follow the URL to its [root node](https://brugge-ldes.geomobility.eu/observations/by-location?tile=0/0/0) you will see ten `tree:GeospatiallyContainsRelation` relations, each defining a bounding box for a tile at level 14. The first two relations look like this (changed a bit for readability):
+Creating a geo-spatial view by hand is pretty hard, so here is an example of an [existing geo-spatial view](https://brugge-ldes.geomobility.eu/observations/by-location). If you follow the URL to its [root node](https://brugge-ldes.geomobility.eu/observations/by-location?tile=0/0/0) you will see ten `tree:GeospatiallyContainsRelation` relations, each defining a bounding box for a tile at level 14. The first two relations look like this (changed a bit for readability):
 
 ```
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
@@ -29,8 +28,7 @@ A tiling system basically means that we start with the world all in one tile. We
                         ] ;
 ...
 ```
-> [!NOTE]
-> The WKT literal defines a [Spatial Reference System (SRS)](https://en.wikipedia.org/wiki/Spatial_reference_system) to be [CRS84](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84) which is the default SRS for WKT.
+The WKT literal defines a [Spatial Reference System (SRS)](https://en.wikipedia.org/wiki/Spatial_reference_system) to be [CRS84](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84) which is the default SRS for WKT.
 
 We can visualize the tiles in our example:
 

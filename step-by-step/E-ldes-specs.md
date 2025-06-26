@@ -10,8 +10,8 @@ As you can imagine, an empty LDES looks similar to an empty TREE collection, exc
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
 wiki:disney a ldes:EventStream .
 ```
-> [!NOTE]
-> We do not double type the data set with `tree:Collection` as this is [implied](https://github.com/SEMICeu/LinkedDataEventStreams/blob/b9c0d747e8d0cb6cb2b0215c758252cf95c30cda/vocabulary.ttl#L34).
+> [!TIP]
+> We do not need to double type the data set with `tree:Collection` as this is [implied](https://github.com/SEMICeu/LinkedDataEventStreams/blob/b9c0d747e8d0cb6cb2b0215c758252cf95c30cda/vocabulary.ttl#L34).
 
 ```mermaid
 flowchart LR
@@ -29,10 +29,14 @@ But, in order to have a history of a thing, we also need to know which version c
 
 Now, how does a data client know which property to use for grouping (relating) and sorting? To allow this, the LDES specification defines two (optional) predicates on an `ldes:EventStream`: the `ldes:versionOfPath` and the `ldes:timestampPath`. The data publisher can choose the predicates freely but usually the `dct:isVersionOf` and the `dct:created` suffice. 
 
-> [!NOTE]
-> The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value (see [ISO 8601 date and time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) indicating the order in which members are added to the event stream. This implies that each member contains such a value and that no member is added to the event stream with a timestamp earlier that the last published member.
-> 
+> [!TIP]
 > A data client needs both predicates to reconstruct the history of things in the correct order, so it is advised to include both.
+
+> [!NOTE]
+> The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/shacl/#property-paths) that, when applied to a member, refers to a `xsd:dateTime` value (see [ISO 8601 date and time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) indicating the order in which members are added to the event stream.
+
+> [!NOTE]
+> Each member should contain a value for the `ldes:timestampPath` predicate path and no member should be added to the event stream with a timestamp earlier that the last published member.
 
 ```
 @prefix tree: <https://w3id.org/tree#> .
@@ -46,8 +50,8 @@ wiki:disney a ldes:EventStream ;
   ldes:versionOfPath dct:isVersionOf ;
   ldes:timestampPath dct:created .
 ```
-> [!NOTE]
-> We also added a `tree:shape` to communicate to the data client that this event stream holds data items of type (schema) person.
+
+We also added a `tree:shape` to communicate to the data client that this event stream holds data items of type (schema) person.
 
 ```mermaid
 flowchart LR
@@ -121,8 +125,8 @@ wiki:Mickey_Mouse#v2 a schema:Person ;
     [ a schema:Product ; schema:category "trousers" ; schema:color "red" ], 
     [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] .
 ```
-> [!NOTE]
-> We have two versions of both Mickey and Minnie. The second Minnie version simply adds her garderobe while in the second Mickey version the garderobe has different colors.
+
+We have two versions of both Mickey and Minnie. The second Minnie version simply adds her garderobe while in the second Mickey version the garderobe has different colors.
 
 ## Fetching an LDES
 A last question we need to answer is: how do we retrieve an LDES? Actually, that is super trivial: we simply use the [HTTP protocol](https://en.wikipedia.org/wiki/HTTP) to request the LDES using a standard [GET](https://en.wikipedia.org/wiki/HTTP#Request_methods) method and we provide the [MIME type](https://en.wikipedia.org/wiki/Media_type) of the serialization format we would like to receive, (e.g. `text/turtle` for Turtle).
@@ -131,7 +135,7 @@ For example, if we assume that an LDES is available at http://my-domain.org/ldes
 ```
 curl "http://my-domain.org/ldes/disney" -X GET -H "content-type: text/turtle"
 ```
-> [!NOTE]
+> [!TIP]
 > You can request the LDES using any internet browser as well, but it is non-trivial to request a specific serialization. The LDES server will return it in its default RDF serialization.
 
 An implementation of an LDES server can choose at what HTTP endpoint it offers an LDES. The LDES specification does not impose any restrictions on the actual API of an LDES server: it only defines the content of an LDES. Actually, the LDES specification only defines a generic way to retrieve an LDES using the HTTP protocol.

@@ -31,10 +31,9 @@ flowchart LR
 ```
 Fig 2. Basic RDF example
 
-> [!NOTE]
-> We need to represent the second fact as two triples because the color is a property of the shoes and not of Mickey.
->
-> Mickey and Minnie are (fictional) characters that we can identify. But, Mickey's shoes clearly do not have their own identity: we can only refer to them as being part of Mickey's garderobe. If we would take another pair of the exact same shoes and shuffle them around, we would have no way of telling them apart.
+We need to represent the second fact as two triples because the color is a property of the shoes and not of Mickey.
+
+Mickey and Minnie are (fictional) characters that we can identify. But, Mickey's shoes clearly do not have their own identity: we can only refer to them as being part of Mickey's garderobe. If we would take another pair of the exact same shoes and shuffle them around, we would have no way of telling them apart.
  
 Remember the two facts came from two different data sets? How can we be sure that we are referring to the same Mickey? Are we even sure they refer to Mickey Mouse and Minnie Mouse? I can imagine that Mickey Rooney (an actor) knew Minnie Riperton (a singer). Clearly, we need a way to make sure that we know exactly what the identify of the thing is.
 
@@ -67,9 +66,9 @@ wiki:Mickey_Mouse
     schema:gender "male" ;
     schema:owns [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] .
 ```
-> [!NOTE]
+> [!TIP]
 > In the Turtle serialization:
-> * we need to write URIs as `<...>`, e.g. `<http://schema.org/gender>`,
+> * we write URIs as `<...>`, e.g. `<http://schema.org/gender>`,
 > * we write strings as `"..."`, e.g. `"shoes"`,
 > * we can use `@prefix` to shorten URIs, e.g. instead of `<http://schema.org/gender>` we can write `schema:gender`,
 > * we use a `;` to refer to the same subject, this is similar as shortening `Mickey is a person. Mickey is male.`  to `Mickey is a person and a male.`, and
@@ -134,7 +133,7 @@ wiki:Mickey_Mouse
     schema:owns [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] ;
     foaf:knows wiki:Minnie_Mouse .
 ```
-> [!NOTE]
+> [!TIP]
 > In Turtle we can use a `,` to refer to the same subject and predicate, similar to shortening `Mickey is a schema person. Mickey is a friend-of-a-friend person.` to `Mickey is a schema person and a friend-of-a-friend person`, where we leave out both the subject and the verb.
 
 ```mermaid
@@ -171,12 +170,11 @@ classDef combined fill:#D8E7EA
 ```
 Fig 5. Definition and relations of Mickey Mouse combined
 
-> [!NOTE]
-> In the definition of Mickey we use the URI linking to its [description on Wikipedia](http://en.wikipedia.org/wiki/Mickey_Mouse) as its (globally) unique identifier (`wiki:Mickey_Mouse` is just a shorthand notation for <http://en.wikipedia.org/wiki/Mickey_Mouse>). Obviously, we need to use the same identifier in the other data set. This allows matching the same entity in both data sets.
->
-> In both data sets we define Mickey as being a (fictional) person but from different vocabularies, which is perfectly possible. The really interesting part is that when we combine the data set, Mickey becomes _double typed_, which means that an entity is classified as two things. It is even possible to make it _multi typed_ (belonging to more than two types). Also note the two arrows which end in the green `foaf:Person` and the blue `schema:Person` nodes. The predicate is the same! By the way, the `a` is a shorthand notation for `rdfs:type` (or <http://www.w3.org/2000/01/rdf-schema#type> in full).
->
-> Mickey's shoes have no identity and are therefore a name-less thing that only makes sense within Mickey's definition. But we do know that this name-less thing is a product of the shoes category and that it is yellow colored.
+In the definition of Mickey we use the URI linking to its [description on Wikipedia](http://en.wikipedia.org/wiki/Mickey_Mouse) as its (globally) unique identifier (`wiki:Mickey_Mouse` is just a shorthand notation for <http://en.wikipedia.org/wiki/Mickey_Mouse>). Obviously, we need to use the same identifier in the other data set. This allows matching the same entity in both data sets.
+
+In both data sets we define Mickey as being a (fictional) person but from different vocabularies, which is perfectly possible. The really interesting part is that when we combine the data set, Mickey becomes _double typed_, which means that an entity is classified as two things. It is even possible to make it _multi typed_ (belonging to more than two types). Also note the two arrows which end in the green `foaf:Person` and the blue `schema:Person` nodes. The predicate is the same! By the way, the `a` is a shorthand notation for `rdfs:type` (or <http://www.w3.org/2000/01/rdf-schema#type> in full).
+
+Mickey's shoes have no identity and are therefore a name-less thing that only makes sense within Mickey's definition. But we do know that this name-less thing is a product of the shoes category and that it is yellow colored.
 
 ## Summary
 > [!IMPORTANT]

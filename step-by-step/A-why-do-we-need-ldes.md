@@ -10,7 +10,8 @@ By definition, a data dump does not allow a _data client_ [^2] to be notified of
 
 [^2]: A data client is an individual, department or even a system using the data.
 
-When offering a data set using a *data set export*, it is the publisher who benefits mostly as the client must overcomes most of the difficulties:
+> [!NOTE]
+> When offering a data set using a *data set export*, it is the publisher who benefits mostly as the client must overcomes most of the difficulties.
 
 |publisher|client|
 |:-|-:|
@@ -29,7 +30,8 @@ Is using a standard API maybe a better option? Well, that clearly depends on the
 
 Also note that a data client only retrieves a portion of the data set by querying the API. Therefore, the data client has a partial view on the data set. Actually, a data publisher will typically only allow a partial view on the data set to limit the load on its systems and to allow fair access for all its data clients.
 
-When offering a data set using a *query API*, the burden and cost is mostly on the publisher side:
+> [!NOTE]
+> When offering a data set using a *query API*, the burden and cost is mostly on the publisher side.
 
 |publisher|client|
 |:-|-:|
@@ -44,7 +46,7 @@ When offering a data set using a *query API*, the burden and cost is mostly on t
 Enter LDES.
 
 > [!IMPORTANT]
-> The main reason for the existence of LDES is to _better balance the (hosting and maintenance) cost between the publisher and the consumer_ and to _stay clear of the API maintenance hell_:
+> The main reason for the existence of LDES is to _better balance the (hosting and maintenance) cost between the publisher and the consumer_ and to _stay clear of the API maintenance hell_.
 
 |publisher|client|
 |:-|-:|
