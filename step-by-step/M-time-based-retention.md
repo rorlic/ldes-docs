@@ -43,3 +43,6 @@ The above `disney:sliding-time-window` view applied to [this example](./E-ldes-s
 > We can use a _retention policy with a `ldes:fullLogDuration` predicate_ to _keep (retain) all members on or after a time period relative before the last published member_.
 >
 > This retention predicate is only influenced by the `ldes:startingFrom` predicate: if that _absolute timestamp falls within the relative time period_ before the last member's timestamp then those members before this absolute timestamp are _not retained_.
+
+---
+<p align="right">Next: <a href="N-version-based-retention.md">LDES Version-based Retention</a></p>
