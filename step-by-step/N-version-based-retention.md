@@ -6,7 +6,7 @@ This policy is based on the assumption that more recent data is the most relevan
 ## Version-subset Retention
 The LDES specification defines a `ldes:versionAmount` predicate specifying an amount (`xsd:integer`) of most recent versions to retain per entity. Conceptually, members are grouped by their `ldes:versionOfPath` predicate path value and then ordered (descending) by their `ldes:timestampPath` predicate path value after which the specified amount of newer entity versions is retained while the other, older entity versions, are dropped.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Members whose _0-based index_ in the above grouped and sorted subsets is _lower than the number of versions to keep_ will be retained (available) in the view.
 
 > [!TIP]
@@ -81,7 +81,7 @@ In addition, there are use cases where data freshness is important and it may be
 
 The LDES specification defines a `ldes:versionDuration` predicate specifying a duration (`xsd:duration`). This duration is subtracted from the _current date and time_ to calculate the cutoff point that should be used to further limit the entity versions to keep for the [Version-subset Retention](#version-subset-retention) (and consequently the [Current-state Retention](#current-state-retention)).
 
-> [!IMPORTANT]
+> [!NOTE]
 > Members that are retained after applying the version-subset condition and whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher_ than the _cutoff point_ will be retained (available) in the view.
 
 ```
@@ -115,7 +115,7 @@ In this example, all entities are of type `sosa:Observation` and have a `sosa:re
 >
 > We can use a _latest-state retention policy_ (with `ldes:versionAmount` set to 1) to _retain only the latest version of each entity_, which in essence just keeps the current/latest state of a data set, without the history of changes.
 >
-> We can combine both these policies with a `ldes:versionDuration` to further limit the versions retained based on a duration against the current date and time, which basically creates a sliding time window.
+> We can combine both these policies with a `ldes:versionDuration` to _further limit the versions retained based on a duration_ against the current date and time, which basically creates a sliding time window (of most recent versions).
 
 ---
 <p align="right">Next: <a href="P-metadata.md">LDES Availability & Discovery</a></p>
