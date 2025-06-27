@@ -3,7 +3,7 @@ One of the most simple use cases for retention is the availability of members af
 
 To define this retention, the LDES specification defines a `ldes:startingFrom` predicate specifying the absolute point in time as a `xsd:dateTime` value.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Members whose `ldes:timestampPath` results in a `xsd:dateTime` that is _equal or higher than this absolute value_ will be retained (available) in the view.
 
 

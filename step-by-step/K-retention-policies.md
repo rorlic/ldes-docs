@@ -7,10 +7,13 @@ Moreover, a partitioned view does not solve the main problem for the data publis
 
 This is where retention policies come to aide: a data publisher can set a retention policy on a view to both manage how much history of the data set is available in a view and to actually purge data items that are unavailable in all views.
 
-View retention basically means that a member is only available in the view for a limited amount of time. If no retention policy is put on a view, all members will be available forever in that view.
+> [!NOTE]
+> View retention basically means that a member is only available in the view for a limited amount of time.
 
-> [!TIP]
-> Because an LDES can have multiple views, all members must be kept indefinitely unless a retention policy is put on _all_ views of the collection. In this case a data item can only be removed from actual storage if no retention policy applies to it.
+Because an LDES can have multiple views, all members must be kept indefinitely unless a retention policy is put on _all_ views of the collection. In this case a data item can only be removed from actual storage if no retention policy applies to it.
+
+> [!NOTE]
+> If no retention policy is put on a view, all members will be available forever in that view, and consequently, no member can ever be deleted.
 
 By keeping a limited history of data items, a data publisher can manage the storage costs. A data client can use the retention policy definition to select the appropriate view or to archive the members for which the retention policy will expire and therefore may be unavailable in the future.
 
@@ -19,7 +22,10 @@ The LDES specification defines that a root node can contain a single predicate `
 > [!TIP]
 > The `ldes:retentionPolicy` can alternatively be supplied on the root node's `tree:viewDescription` instead of on the root node itself, but obviously not on both.
 
-If the entity contains no predicates, no members will be available in the view. Adding predicates allows us to define which members must be retained in the view and will be available. Each predicate helps us to cover some use case: keep members from a fixed point in time, keep members for a fixed time interval, keep a limited number of versions for a member, keep deleted members for a fixed time interval, etc. However, by combining these retention predicates additional use cases are possible.
+> [!CAUTION]
+If the retention policy entity contains no predicates, no members will be available in the view.
+
+Adding predicates allows us to define which members must be retained in the view and will be available. Each predicate helps us to cover some use case: keep members from a fixed point in time, keep members for a fixed time interval, keep a limited number of versions for a member, keep deleted members for a fixed time interval, etc. However, by combining these retention predicates additional use cases are possible.
 
 By adding (combining) retention predicates, typically we retain more members, but some combinations interact and therefore decrease the retained member count.
 
