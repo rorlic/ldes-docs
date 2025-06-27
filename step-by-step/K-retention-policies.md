@@ -27,6 +27,9 @@ If the retention policy entity contains no predicates, no members will be availa
 
 Adding predicates allows us to define which members must be retained in the view and will be available. Each predicate helps us to cover some use case: keep members from a fixed point in time, keep members for a fixed time interval, keep a limited number of versions for a member, keep deleted members for a fixed time interval, etc. However, by combining these retention predicates additional use cases are possible.
 
+> [!TIP]
+> As some retention policies use the current date and time you should ensure that all relevant systems have their time synchronized with a [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP) server.
+
 By adding (combining) retention predicates, typically we retain more members, but some combinations interact and therefore decrease the retained member count.
 
 > [!IMPORTANT]
