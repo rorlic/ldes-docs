@@ -116,3 +116,6 @@ In this example, all entities are of type `sosa:Observation` and have a `sosa:re
 > We can use a _latest-state retention policy_ (with `ldes:versionAmount` set to 1) to _retain only the latest version of each entity_, which in essence just keeps the current/latest state of a data set, without the history of changes.
 >
 > We can combine both these policies with a `ldes:versionDuration` to further limit the versions retained based on a duration against the current date and time, which basically creates a sliding time window.
+
+---
+<p align="right">Next: <a href="P-metadata.md">LDES Availability & Discovery</a></p>
