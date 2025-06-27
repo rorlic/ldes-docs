@@ -72,7 +72,7 @@ disney:latest-state a tree:Node ;
 The above `disney:latest-state` view applied to [this example](./E-ldes-specs.md#naming-members) would only contain members `wiki:Minnie_Mouse#v2` and `wiki:Mickey_Mouse#v2` because these are the latest versions of the entities. If at some time in the future a new version of an entity would be added, then the old version of that entity would be removed from the view.
 
 > [!NOTE]
-> Although this policy only keeps one version of an entity, the LDES members are still a _version_ of an entity and not the entity itself. As always, when a data client uses an LDES, the members need to be converted into their entity further downstream.
+> Although this policy only keeps one version of an entity, the LDES members are still a _version_ of an entity and not the entity itself. As we will see later, when a data client replicates and synchronizes an LDES, the members emitted need to be converted into their entity further downstream.
 
 ## Time-limited Retention
 The retentions described above keep one or more versions of an entity in a view, but they do so for an unlimited period of time, i.e. the life-time of the event stream. Therefore, an LDES can still grow without limit if the number of entities increases.
