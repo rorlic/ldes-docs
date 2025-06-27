@@ -38,7 +38,7 @@ By adding (combining) retention predicates, typically we retain more members, bu
 We will cover these and some other retention use cases in subsequent steps in this guide.
 
 > [!CAUTION]
-> In previous LDES versions, you could override the `ldes:timestampPath` predicate on the retention policy level but this is _not_ allowed anymore to ensure that the retention policy always compares to the last member’s timestamp.
+> In previous LDES versions, you could override the `ldes:timestampPath` predicate on the retention policy level but this is _not_ allowed anymore to ensure that the retention policy always compares to the member’s timestamp.
 > 
 > This timestamp is defined as the chronological order in which members of the event stream are added. Using a different timestamp would risk using a non-chronological timestamp even if it is theoretically chronological, e.g. out-of-order arrivals.
 
