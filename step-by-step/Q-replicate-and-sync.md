@@ -92,7 +92,7 @@ Note that we do not select the event stream IRI (`?e`) as we only need the root 
 > 
 > If still no or multiple root node IRIs are found this way then the response is not a valid LDES.
 
-## Retrieving the history (Replication)
+## Retrieve the History (Replication)
 After you have extracted the definitions of the event stream and the view, you have enough information to process the TREE structure.
 
 The initialization algorithm ensures that you have the content of the root node. You can now extract the members form the root node response as well as the related node(s) from the relation(s). For each node found, you retrieve the node content to extract the additional members and any contained relations, which again gives you more node IRIs. You need to repeat this until you have retrieved all the node IRIs. Now you have successfully _replicated_ the data set.
@@ -139,7 +139,7 @@ As you see, getting the URIs of the members is easy. However, collecting all the
 
 For now, the algorithm also uses the `tree:shape` to limit or to include quads to the member, but this behavior will be obsoleted in the future.
 
-## Retrieving the future (Synchronization)
+## Retrieve the Future (Synchronization)
 Usually, an API that allows you to get notified of changes will provide some way of subscribing for these notifications. This requires management of these notifications on the server side, possibly including retries if the client side cannot be notified. On the client side we need to unsubscribe in order to stop receiving notifications. In addition, the server and client side need to have a common understanding what the notification means and how to interpret what (part of the) data has changed. As you can imagine, this is pretty complex all things considered.
 
 Again, LDES takes a different approach: there are no subscriptions and no notifications, but instead the server side can indicate to the client side which node is "full" and which node may contain additional members in the future. Please remember that an LDES is a collection of immutable members. In other words, the members themselves will never change as they are versions of entities. That is, if an entity changes, a new version object is added to the LDES as a member.
