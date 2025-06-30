@@ -54,3 +54,6 @@ This may need a bit of explanation. Basically, we have defined a catalog named `
 > Both the _TREE and LDES specifications are a living standard_ and do not (yet) define exactly how the LDES metadata should look like. However, they _are_ both _compatible with DCAT_.
 > 
 > For the time being, the recommended way to expose metadata for a LDES is to _map the LDES to a dataset and a view to a data service_ and relate them using a distribution, and finally, put all of these DCAT resources in a catalog. After that, you provide the endpoint containing the catalog to a metadata service so that a data client can discover the available LDES'es.
+
+---
+<p align="right">Next: <a href="Q-replicate-and-sync.md">LDES Replication & Synchronization</a></p>
