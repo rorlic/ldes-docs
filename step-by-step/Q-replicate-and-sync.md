@@ -64,7 +64,7 @@ Congratulations! You have written your first [SPARQL](https://en.wikipedia.org/w
 >     ?e tree:shape ?s .
 > }
 > ```
-> If still no event stream IRI is found this way then the response is not a invalid LDES.
+> If still no event stream IRI is found this way then the response is not a valid LDES.
 
 ### Extract the Root Node
 We can extract the root node IRI in a similar way. Given that there can only be one event stream in the response, we can lookup the triples matching predicate `tree:view`. The objects from these triples are the root node IRIs from the views. I.e.:
@@ -90,7 +90,7 @@ Note that we do not select the event stream IRI (`?e`) as we only need the root 
 > ```
 > Note that we use `distinct` to find the unique node as a node can have multiple relations.
 > 
-> If still no or multiple root node IRIs are found this way then the response is not a invalid LDES.
+> If still no or multiple root node IRIs are found this way then the response is not a valid LDES.
 
 ## Retrieving the history (Replication)
 After you have extracted the definitions of the event stream and the view, you have enough information to process the TREE structure.
