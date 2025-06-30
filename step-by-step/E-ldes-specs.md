@@ -79,7 +79,7 @@ Fig 2. Example of (almost) completely defined LDES.
 ## Naming Members
 Now, before we add members to an LDES we need to look into how we name and represent a member, which, as we already know, is a version of a thing. To machines it does not matter how such a member is named but us humans like structure so what you would typically do is take the URI of the original entity and append a version identifier to it, i.e. a timestamp value. This makes a version's identifier unique while it is still readable and even visually sortable.
 
-For example, given a state object identified by some URI such as `http://example.org/thing/1` and given some version value such as `2000-01-01T15:00:00` we typically create a member identifier by appending a separator ('#' or similar) and the timestamp value to the URI, resulting in `http://example.org/thing/1#2000-01-01T15:00:00`.
+For example, given an entity identified by some URI such as `http://example.org/thing/1` and given some version value such as `2000-01-01T15:00:00` we typically create a member identifier by appending a separator ('#' or similar) and the timestamp value to the URI, resulting in `http://example.org/thing/1#2000-01-01T15:00:00`.
 
 ```
 @prefix tree: <https://w3id.org/tree#> .

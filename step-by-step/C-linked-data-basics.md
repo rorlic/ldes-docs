@@ -67,6 +67,9 @@ wiki:Mickey_Mouse
     schema:owns [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] .
 ```
 > [!TIP]
+> In Linked Data we can use `a` to abbreviate the `rdfs:type` predicate, which defines the type of an entity.
+
+> [!TIP]
 > In the Turtle serialization:
 > * we write URIs as `<...>`, e.g. `<http://schema.org/gender>`,
 > * we write strings as `"..."`, e.g. `"shoes"`,

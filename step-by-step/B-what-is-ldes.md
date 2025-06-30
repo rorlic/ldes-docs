@@ -13,7 +13,7 @@ In order to link related data sets together, all data items must have a unique i
 > [!NOTE]
 > An [(Event) Stream](https://en.wikipedia.org/wiki/Stream_(computing)) is a continuous flow of data produced over time by some system.
 
-In software development, we typically handle such a flow using [stream processing](https://en.wikipedia.org/wiki/Stream_processing). Each data item contains an [event](https://en.wikipedia.org/wiki/Event_(computing)), which is basically a change of the state of a thing. An event can either represent only the portion of this thing that has changed, or the full new state of the thing. The LDES specification requires that the data items contain the _complete_ new state of a thing. We call this a (state object or entity) _version_.
+In software development, we typically handle such a flow using [stream processing](https://en.wikipedia.org/wiki/Stream_processing). Each data item contains an [event](https://en.wikipedia.org/wiki/Event_(computing)), which is basically a change of the state of a thing. An event can either represent only the portion of this thing that has changed, or the full new state of the thing. The LDES specification requires that the data items contain the _complete_ new state of a thing. We call this a _version_ of an entity.
 
 > [!IMPORTANT]
 > In essence, a LDES is _an event stream of (fully-represented) entity versions, expressed as linked data_.
