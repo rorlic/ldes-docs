@@ -191,3 +191,6 @@ In all these cases, you should host your own LDES server and create a data pipel
 ## Summary
 > [!IMPORTANT]
 > A _LDES client_ is used to _replicate and synchronize a data set_, which allows you to easily retrieve the history and the latest state of the entities in the data set.
+
+---
+<p align="right">Next: <a href="R-now-what.md">Further Reading</a></p>
