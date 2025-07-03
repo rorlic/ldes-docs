@@ -9,13 +9,13 @@ With these relations we can create a structure where the collection view contain
 
 Node `disney:by-time` (the time-based view):
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
 @prefix schema: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:     <http://example.org/> .
+@prefix disney: <http://example.org/disney#> .
 
-wiki:disney a tree:Collection ;
+ex:DisneyFeed a tree:Collection ;
   tree:view disney:by-time .
 
 disney:by-time a tree:Node ;
@@ -31,14 +31,14 @@ disney:by-time a tree:Node ;
 ```
 Node `disney:1900` (all Disney figures 'born' in the previous century):
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
 @prefix schema: <http://schema.org/> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+@prefix void:   <http://rdfs.org/ns/void#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:     <http://example.org/> .
+@prefix disney: <http://example.org/disney#> .
 
-wiki:disney a tree:Collection ;
+ex:DisneyFeed a tree:Collection ;
   void:subset disney:1900 .
 
 disney:1900 a tree:Node ;
@@ -50,14 +50,15 @@ disney:1900 a tree:Node ;
 ```
 Node `disney:1928` (all Disney figures 'born' in 1928):
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
 @prefix schema: <http://schema.org/> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+@prefix void:   <http://rdfs.org/ns/void#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:     <http://example.org/> .
+@prefix disney: <http://example.org/disney#> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
 
-wiki:disney a tree:Collection ;
+ex:DisneyFeed a tree:Collection ;
   void:subset disney:1928 ;
   tree:member wiki:Mickey_Mouse, wiki:Minnie_Mouse .
 

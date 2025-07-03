@@ -7,15 +7,16 @@ The LDES specification defines an `ldes:EventStream` to be a `tree:Collection` w
 As you can imagine, an empty LDES looks similar to an empty TREE collection, except for its type:
 ```
 @prefix ldes: <https://w3id.org/ldes#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
-wiki:disney a ldes:EventStream .
+@prefix ex:   <http://example.org/> .
+
+ex:DisneyFeed a ldes:EventStream .
 ```
 > [!TIP]
 > We do not need to double type the data set with `tree:Collection` as this is [implied](https://github.com/SEMICeu/LinkedDataEventStreams/blob/b9c0d747e8d0cb6cb2b0215c758252cf95c30cda/vocabulary.ttl#L34).
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     ldes(("`ldes:
     EventStream`"))
     disney -- a --> ldes
@@ -38,14 +39,14 @@ The `ldes:timestampPath` must be a [SHACL property path](https://www.w3.org/TR/s
 > Each member should contain a value for the `ldes:timestampPath` predicate path and no member should be added to the event stream with a timestamp earlier that the last published member.
 
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix ldes: <https://w3id.org/ldes#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tree:   <https://w3id.org/tree#> .
+@prefix ldes:   <https://w3id.org/ldes#> .
+@prefix ex:     <http://example.org/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix schema: <http://schema.org/> .
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
 
-wiki:disney a ldes:EventStream ;
+ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
   ldes:versionOfPath dct:isVersionOf ;
   ldes:timestampPath dct:created .
@@ -55,7 +56,7 @@ We also added a `tree:shape` to communicate to the data client that this event s
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     ldes(("`ldes:
     EventStream`"))
     created(("`dcterms:
@@ -82,15 +83,16 @@ Now, before we add members to an LDES we need to look into how we name and repre
 For example, given an entity identified by some URI such as `http://example.org/thing/1` and given some version value such as `2000-01-01T15:00:00` we typically create a member identifier by appending a separator ('#' or similar) and the timestamp value to the URI, resulting in `http://example.org/thing/1#2000-01-01T15:00:00`.
 
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix ldes: <https://w3id.org/ldes#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tree:   <https://w3id.org/tree#> .
+@prefix ldes:   <https://w3id.org/ldes#> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix schema: <http://schema.org/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:     <http://example.org/> .
 
-wiki:disney a ldes:EventStream ;
+ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
   ldes:versionOfPath dct:isVersionOf ;
   ldes:timestampPath dct:created ;

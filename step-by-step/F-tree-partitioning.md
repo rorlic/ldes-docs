@@ -60,12 +60,13 @@ Because the `tree:view` entity is by definition a `tree:Node` you do not need to
 > A _root node_ can also contain a `tree:viewDescription` property, which is an entity that further describes a TREE view, e.g. with a `dcat:Distribution` predicate (see [catalog information](https://semiceu.github.io/DCAT-AP/releases/3.0.0/)).
 > 
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
-@prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+@prefix ex:     <http://example.org/> .
+@prefix disney: <http://example.org/disney#> .
 
-wiki:disney a tree:Collection ;
+ex:DisneyFeed a tree:Collection ;
   tree:view disney:partA ;
   tree:member wiki:Mickey_Mouse, wiki:Minnie_Mouse .
 
@@ -80,7 +81,7 @@ wiki:Minnie_Mouse a schema:Person .
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     collection(("`tree:
     Collection`"))
     mickey(("`wiki:
@@ -116,13 +117,14 @@ flowchart LR
 Fig 2. Tree node A (starting node)
 
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+@prefix void:   <http://rdfs.org/ns/void#> .
+@prefix ex:     <http://example.org/> .
+@prefix disney: <http://example.org/disney#> .
 
-wiki:disney a tree:Collection ;
+ex:DisneyFeed a tree:Collection ;
   tree:member wiki:Donald_Duck .
 
 disney:partB a tree:Node .
@@ -132,7 +134,7 @@ wiki:Donald_Duck a schema:Person .
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     collection(("`tree:
     Collection`"))
     donald(("`wiki:
@@ -153,13 +155,14 @@ flowchart LR
 Fig 3. Tree node B
 
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix disney: <http://en.wikipedia.org/wiki/disney#> .
+@prefix void:   <http://rdfs.org/ns/void#> .
+@prefix ex:     <http://example.org/> .
+@prefix disney: <http://example.org/disney#> .
 
-wiki:disney a tree:Collection ;
+ex:DisneyFeed a tree:Collection ;
   tree:view disney:partC ;
   tree:member wiki:Goofy .
 
@@ -171,7 +174,7 @@ wiki:Goofy a schema:Person .
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     collection(("`tree:
     Collection`"))
     goofy(("`wiki:

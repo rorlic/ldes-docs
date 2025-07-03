@@ -26,10 +26,10 @@ The LDES specification defines a `ldes:versionAmount` predicate specifying an am
 @prefix schema:    <http://schema.org/> .
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
-@prefix wiki:      <http://en.wikipedia.org/wiki/> .
-@prefix disney:    <http://en.wikipedia.org/wiki/disney/> .
+@prefix ex:        <http://example.org/> .
+@prefix disney:    <http://example.org/disney/> .
 
-wiki:disney a ldes:EventStream ;
+ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
   ldes:versionOfPath dct:isVersionOf ;
   ldes:timestampPath dct:created ;
@@ -54,10 +54,10 @@ To implement this policy we simply set the `ldes:versionAmount` to one.
 @prefix schema:    <http://schema.org/> .
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
-@prefix wiki:      <http://en.wikipedia.org/wiki/> .
-@prefix disney:    <http://en.wikipedia.org/wiki/disney/> .
+@prefix ex:        <http://example.org/> .
+@prefix disney:    <http://example.org/disney/> .
 
-wiki:disney a ldes:EventStream ;
+ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
   ldes:versionOfPath dct:isVersionOf ;
   ldes:timestampPath dct:created ;

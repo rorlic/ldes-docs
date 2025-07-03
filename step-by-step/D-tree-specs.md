@@ -5,13 +5,14 @@ The [TREE specification](https://w3id.org/tree/specification) defines a `tree:Co
 The most simple collection possible is one without members. Not very useful but it is a start:
 ```
 @prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
-wiki:disney a tree:Collection .
+@prefix ex:   <http://example.org/> .
+
+ex:DisneyFeed a tree:Collection .
 ```
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     collection(("`tree:
     Collection`"))
     disney -- a --> collection
@@ -24,7 +25,9 @@ It gets a bit more interesting if we add some data items. Here is the same TREE 
 ```
 @prefix tree: <https://w3id.org/tree#> .
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
-wiki:disney a tree:Collection ;
+@prefix ex:   <http://example.org/> .
+
+ex:DisneyFeed a tree:Collection ;
     tree:member wiki:Mickey_Mouse, wiki:Minnie_Mouse .
 ```
 
@@ -32,7 +35,7 @@ or visually:
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     collection((tree:Collection))
     mickey(("`wiki:
     Mickey_Mouse`"))
@@ -47,15 +50,23 @@ Fig 2. Example of a TREE collection with members.
 ## Defining Members
 This is a bit better as we now know the members of this collection, but we still need to add the member definitions:
 ```
-@prefix tree: <https://w3id.org/tree#> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix tree:   <https://w3id.org/tree#> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
-wiki:disney a tree:Collection ;
+@prefix ex:     <http://example.org/> .
+
+ex:DisneyFeed a tree:Collection ;
     tree:member wiki:Mickey_Mouse, wiki:Minnie_Mouse .
+
 wiki:Mickey_Mouse 
     a schema:Person ;
     schema:gender "male" ;
-    schema:owns [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] .
+    schema:owns [ 
+      a schema:Product ; 
+      schema:category "shoes" ; 
+      schema:color "yellow" 
+    ] .
+
 wiki:Minnie_Mouse 
     a schema:Person .
 ```

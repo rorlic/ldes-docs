@@ -10,11 +10,12 @@ Example reference-based view:
 @prefix schema:    <http://schema.org/> .
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
-@prefix wiki:      <http://en.wikipedia.org/wiki/> .
-@prefix disney:    <http://en.wikipedia.org/wiki/disney/> .
-@prefix by-gender: <http://en.wikipedia.org/wiki/disney/by-gender/> .
 
-wiki:disney a tree:Collection ;
+@prefix ex:        <http://example.org/> .
+@prefix disney:    <http://example.org/disney/> .
+@prefix by-gender: <http://example.org/disney/by-gender/> .
+
+ex:DisneyFeed a tree:Collection ;
   tree:view disney:by-gender .
 
 disney:by-gender a tree:Node ;
@@ -33,7 +34,7 @@ disney:by-gender a tree:Node ;
 
 ```mermaid
 flowchart LR
-    disney((wiki:disney))
+    disney((ex:DisneyFeed))
     collection(("`tree:
     Collection`"))
     view(("`disney:

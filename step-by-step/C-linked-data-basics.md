@@ -59,12 +59,16 @@ To understand the power (and elegance) of linked data, we will use a more elabor
 If the first data set contains a definition of Mickey as follows:
 ```
 @prefix schema: <http://schema.org/> .
-@prefix wiki: <http://en.wikipedia.org/wiki/> .
+@prefix wiki:   <http://en.wikipedia.org/wiki/> .
 
 wiki:Mickey_Mouse 
     a schema:Person ;
     schema:gender "male" ;
-    schema:owns [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] .
+    schema:owns [ 
+      a schema:Product ; 
+      schema:category "shoes" ; 
+      schema:color "yellow" 
+    ] .
 ```
 > [!TIP]
 > In Linked Data we can use `a` to abbreviate the `rdfs:type` predicate, which defines the type of an entity.
@@ -105,7 +109,9 @@ and the second data sets contains its relation with Minnie as follows:
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
 
-wiki:Mickey_Mouse a foaf:Person ; foaf:knows wiki:Minnie_Mouse  .
+wiki:Mickey_Mouse 
+  a foaf:Person ; 
+  foaf:knows wiki:Minnie_Mouse  .
 ```
 
 ```mermaid
@@ -131,9 +137,14 @@ We can link those data sets and obtain the following data for Mickey:
 @prefix wiki: <http://en.wikipedia.org/wiki/> .
 
 wiki:Mickey_Mouse 
-    a schema:Person, foaf:Person ;
+    a schema:Person, 
+    foaf:Person ;
     schema:gender "male" ;
-    schema:owns [ a schema:Product ; schema:category "shoes" ; schema:color "yellow" ] ;
+    schema:owns [ 
+      a schema:Product ; 
+      schema:category "shoes" ; 
+      schema:color "yellow" 
+    ] ;
     foaf:knows wiki:Minnie_Mouse .
 ```
 > [!TIP]

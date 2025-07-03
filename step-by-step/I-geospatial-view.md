@@ -10,6 +10,8 @@ A tiling system basically means that we start with the world all in one tile. We
 Creating a geo-spatial view by hand is pretty hard, so here is an example of an [existing geo-spatial view](https://brugge-ldes.geomobility.eu/observations/by-location). If you follow the URL to its [root node](https://brugge-ldes.geomobility.eu/observations/by-location?tile=0/0/0) you will see ten `tree:GeospatiallyContainsRelation` relations, each defining a bounding box for a tile at level 14. The first two relations look like this (changed a bit for readability):
 
 ```
+@base <https://brugge-ldes.geomobility.eu/observations>
+
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @prefix rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix tree:      <https://w3id.org/tree#> .
