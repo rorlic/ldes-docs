@@ -73,5 +73,11 @@ Fig 1. Example Reference-based View
 > [!IMPORTANT]
 > A _reference-based view_ allows us to create a (shallow) _hierarchical structure_ where we can _filter a data set based on some classification_.
 
+
+> [!TIP]
+> Typically, a reference-based partitioning will be used in combination with other types of partitioning providing a way to do a first rough filtering.
+> 
+> sIn fact, there is no limit on how to partition a collection: you can use a combination of the regular `tree:Relation` and its specialized relation types (i.e. its sub-classes) as you see fit, as long as you create a tree-like structure.
+
 ---
 <p align="right">Next: <a href="K-retention-policies.md">LDES Retention Policies</a></p>
