@@ -51,7 +51,8 @@ The TREE specification defines a `tree:Node` type (a _node_) to have a `tree:rel
 
 A `tree:Collection` has a predicate `tree:view` that points to the current `tree:Node` (the part we requested).
 
-Because the `tree:view` entity is by definition a `tree:Node` you do not need to include a triple specifying this type (i.e. you can drop the triple `<> a tree:Node`). Vice versa, because a page can contain at most one `tree:Node` you can assume that this entity is the `tree:view` of the collection, so you can omit that triple (i.e. `<collection> tree:view <>`). However, if the collection response does not contain a `tree:Node` then a `<collection> tree:view <root-node>` triple is required in order for a data client to be able to retrieve the root node. Obviously, you need to provide at least one of the triples to allow determining both the collection and node entities.
+> [!TIP]
+> Because the `tree:view` entity is by definition a `tree:Node` you do not need to include a triple specifying this type (i.e. you can drop the triple `<> a tree:Node`). Vice versa, because a page can contain at most one `tree:Node` you can assume that this entity is the `tree:view` of the collection, so you can omit that triple (i.e. `<collection> tree:view <>`). However, if the collection response does not contain a `tree:Node` then a `<collection> tree:view <root-node>` triple is required in order for a data client to be able to retrieve the root node. Obviously, you need to provide at least one of the triples to allow determining both the collection and node entities. However, best practice is to include both triples.
 
 > [!TIP]
 > A collection can contain any number of views, therefore we can create different structures that allow finding all the data items in different ways. Obviously, this requires a data client to select the appropriate view to follow, e.g. based on the SHACL shape.
@@ -120,11 +121,11 @@ Fig 2. Tree node A (starting node)
 @prefix tree:   <https://w3id.org/tree#> .
 @prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
-@prefix void:   <http://rdfs.org/ns/void#> .
 @prefix ex:     <http://example.org/> .
 @prefix disney: <http://example.org/disney#> .
 
 ex:DisneyFeed a tree:Collection ;
+  tree:view disney:partB;
   tree:member wiki:Donald_Duck .
 
 disney:partB a tree:Node .
@@ -158,7 +159,6 @@ Fig 3. Tree node B
 @prefix tree:   <https://w3id.org/tree#> .
 @prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
-@prefix void:   <http://rdfs.org/ns/void#> .
 @prefix ex:     <http://example.org/> .
 @prefix disney: <http://example.org/disney#> .
 
