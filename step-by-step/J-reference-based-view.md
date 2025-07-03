@@ -12,8 +12,8 @@ Example reference-based view:
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix ex:        <http://example.org/> .
-@prefix disney:    <http://example.org/disney/> .
-@prefix by-gender: <http://example.org/disney/by-gender/> .
+@prefix disney:    <http://example.org/DisneyFeed/> .
+@prefix by-gender: <http://example.org/DisneyFeed/by-gender/> .
 
 ex:DisneyFeed a tree:Collection ;
   tree:view disney:by-gender .
