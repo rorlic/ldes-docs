@@ -15,7 +15,7 @@ wiki:disney a ldes:EventStream .
 
 ```mermaid
 flowchart LR
-    disney((wiki:Disney))
+    disney((wiki:disney))
     ldes(("`ldes:
     EventStream`"))
     disney -- a --> ldes
@@ -55,7 +55,7 @@ We also added a `tree:shape` to communicate to the data client that this event s
 
 ```mermaid
 flowchart LR
-    disney((wiki:Disney))
+    disney((wiki:disney))
     ldes(("`ldes:
     EventStream`"))
     created(("`dcterms:

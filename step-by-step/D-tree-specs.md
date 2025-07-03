@@ -11,7 +11,7 @@ wiki:disney a tree:Collection .
 
 ```mermaid
 flowchart LR
-    disney((wiki:Disney))
+    disney((wiki:disney))
     collection(("`tree:
     Collection`"))
     disney -- a --> collection
@@ -32,7 +32,7 @@ or visually:
 
 ```mermaid
 flowchart LR
-    disney((wiki:Disney))
+    disney((wiki:disney))
     collection((tree:Collection))
     mickey(("`wiki:
     Mickey_Mouse`"))
