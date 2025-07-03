@@ -5,13 +5,13 @@ In the linked data world, we can use the [Data Catalog Vocabulary (version 3)](h
 
 The DCAT specification allows to build registries of data sets by aggregating metadata from different data owners or publishers. This increases the discoverability of data sets. The specification even allows for decentralized data catalogs that make federated searches across these registries.
 
-If you know a metadata service URL (such as [Metadata Vlaanderen](https://metadata.vlaanderen.be/srv/eng/catalog.search#/home)), you can lookup the available data sets in the service's catalog.
+If you know a metadata service URL (e.g.[Metadata Vlaanderen](https://metadata.vlaanderen.be/srv/eng/catalog.search#/home) or [European Data](https://data.europa.eu/en)), you can lookup the available data sets in the service's catalog.
 
 The main [DCAT concepts](https://www.w3.org/TR/vocab-dcat-3/#dcat-scope) are _catalog_ (`dcat:Catalog`), _data set_ (`dcat:Dataset`), _distribution_ (`dcat:Distribution`) and _data service_ (`dcat:DataService`), where `dcat:` maps to namespace `http://www.w3.org/ns/dcat#`.
 
 Simplified, in the DCAT context, a catalog is a collection of metadata about the available data sets. A data set is a collection of data items available using distributions. A distribution is an accessible form of the data set and can have a data (access) service. A data service is the interface (API) to access the data set. In fact, both a data set and a data service are a resource (`dcat:Resource`) and inherit many properties in addition to a few of their own. A catalog is basically a data set of metadata records, and as such also a resource.
 
-The TREE specifications does not refer to DCAT while the LDES specification briefly mentions [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) compatibility. Basically, this is still [work in progress](https://treecg.github.io/specification/discovery).
+The TREE specifications does not refer to DCAT while the LDES specification briefly mentions [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) compatibility. Basically, this is still work in progress in the [TREE Discovery and Context Information](https://treecg.github.io/specification/discovery).
 
 So, how do we find (or expose) a LDES using DCAT for now? To find a LDES in a DCAT catalog, you need to look for data sets or data services which have a `dct:conformsTo` set to `ldes:specification` (see [here](https://github.com/SEMICeu/LinkedDataEventStreams/issues/58)). Once you have found the data sets that conform to the LDES specification, you need to get a hold of one of the LDES views.
 
