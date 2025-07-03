@@ -21,7 +21,7 @@ This is the _current recommendation_ until the TREE and LDES specifications cont
 
 There are many DCAT derived specifications that are applicable for local environments. These may require a slightly different approach, or expect some additional mandatory predicates, or limit some values, etc. The problem with some standards is that there are too many (variations) of them.
 
-Example LDES metadata (without the LDES details and minimal DCAT):
+Example LDES metadata (without the LDES details and with minimal DCAT):
 ```
 @prefix tree:      <https://w3id.org/tree#> .
 @prefix ldes:      <https://w3id.org/ldes#> .
@@ -48,7 +48,7 @@ disney:default-distribution a dcat:Distribution ;
 disney:default-view a tree:Node, dcat:DataService ;
   dcat:endpointURL disney:default-view .
 ```
-This may need a bit of explanation. Basically, we have defined a catalog named `ex:catalog` that has a data set `ex:DisneyFeed`, which is doubled typed to an LDES and a data set. The event stream conforms to LDES and has a distribution named `disney:default-distribution` and a view named `disney:default-view`, which is both an identifier (URI) and a locator (URL). The distribution has both its direct access URL set to the view URL and refers to the view as its access service, which is the 'API' allowing access to the data set. Finally, our view is both a (starting) node as well as a data service, which endpoint is, of course, the view URL.
+This may need a bit of explanation. Basically, we have defined a catalog named `ex:catalog` that has a data set `ex:DisneyFeed`, which is doubled typed to an LDES and a data set. The event stream conforms to the LDES specification and has a distribution named `disney:default-distribution` and a view named `disney:default-view`, which is both an identifier (URI) and a locator (URL). The distribution has both its direct access URL set to the view URL and refers to the view as its access service, which is the 'API' allowing access to the data set. Finally, our view is both a (starting) node as well as a data service, which endpoint is, of course, the view URL.
 
 > [!IMPORTANT]
 > Both the _TREE and LDES specifications are a living standard_ and do not (yet) define exactly how the LDES metadata should look like. However, they _are_ both _compatible with DCAT_.
