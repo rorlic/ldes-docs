@@ -65,7 +65,7 @@ A `tree:Collection` has a predicate `tree:view` that points to the current `tree
 @prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
 @prefix ex:     <http://example.org/> .
-@prefix disney: <http://example.org/disney#> .
+@prefix disney: <http://example.org/DisneyFeed#> .
 
 ex:DisneyFeed a tree:Collection ;
   tree:view disney:partA ;
@@ -122,7 +122,7 @@ Fig 2. Tree node A (starting node)
 @prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
 @prefix ex:     <http://example.org/> .
-@prefix disney: <http://example.org/disney#> .
+@prefix disney: <http://example.org/DisneyFeed#> .
 
 ex:DisneyFeed a tree:Collection ;
   tree:view disney:partB;
@@ -160,7 +160,7 @@ Fig 3. Tree node B
 @prefix wiki:   <http://en.wikipedia.org/wiki/> .
 @prefix schema: <http://schema.org/> .
 @prefix ex:     <http://example.org/> .
-@prefix disney: <http://example.org/disney#> .
+@prefix disney: <http://example.org/DisneyFeed#> .
 
 ex:DisneyFeed a tree:Collection ;
   tree:view disney:partC ;

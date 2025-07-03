@@ -13,7 +13,7 @@ Node `disney:by-time` (the time-based view):
 @prefix schema: <http://schema.org/> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:     <http://example.org/> .
-@prefix disney: <http://example.org/disney#> .
+@prefix disney: <http://example.org/DisneyFeed#> .
 
 ex:DisneyFeed a tree:Collection ;
   tree:view disney:by-time .
@@ -35,7 +35,7 @@ Node `disney:1900` (all Disney figures 'born' in the previous century):
 @prefix schema: <http://schema.org/> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:     <http://example.org/> .
-@prefix disney: <http://example.org/disney#> .
+@prefix disney: <http://example.org/DisneyFeed#> .
 
 ex:DisneyFeed a tree:Collection ;
   tree:view disney:1900 .
@@ -53,7 +53,7 @@ Node `disney:1928` (all Disney figures 'born' in 1928):
 @prefix schema: <http://schema.org/> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:     <http://example.org/> .
-@prefix disney: <http://example.org/disney#> .
+@prefix disney: <http://example.org/DisneyFeed#> .
 @prefix wiki:   <http://en.wikipedia.org/wiki/> .
 
 ex:DisneyFeed a tree:Collection ;
