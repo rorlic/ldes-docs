@@ -1,5 +1,5 @@
 # LDES Availability & Discovery
-So, how do you known which data sets are available as a LDES? How do you announce availability of your LDES data sets?
+So, how do you known which data sets are available as an LDES? How do you announce availability of your LDES data sets?
 
 In the linked data world, we can use the [Data Catalog Vocabulary (version 3)](https://www.w3.org/TR/vocab-dcat-3/) (DCAT v3) to describe the metadata of a data set. This allows a data client to look up information about the data set such as the data offered in the data set, conditions for using it, where to find the data set, etc.
 
@@ -13,9 +13,9 @@ Simplified, in the DCAT context, a catalog is a collection of metadata about the
 
 The TREE specifications does not refer to DCAT while the LDES specification briefly mentions [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) compatibility. Basically, this is still work in progress in the [TREE Discovery and Context Information](https://treecg.github.io/specification/discovery).
 
-So, how do we find (or expose) a LDES using DCAT for now? To find a LDES in a DCAT catalog, you need to look for data sets or data services which have a `dct:conformsTo` set to `ldes:specification` (see [here](https://github.com/SEMICeu/LinkedDataEventStreams/issues/58)). Once you have found the data sets that conform to the LDES specification, you need to get a hold of one of the LDES views.
+So, how do we find (or expose) an LDES using DCAT for now? To find an LDES in a DCAT catalog, you need to look for data sets or data services which have a `dct:conformsTo` set to `ldes:specification` (see [here](https://github.com/SEMICeu/LinkedDataEventStreams/issues/58)). Once you have found the data sets that conform to the LDES specification, you need to get a hold of one of the LDES views.
 
-Technically, LDES does not define an API, therefore a data publisher might use the `dcat:accessURL` predicate on `dcat:Distribution` to refer to the LDES itself, from where the views can be discovered, which all provide the same data set but organized differently. The idea is similar to [this](https://www.w3.org/TR/vocab-dcat-3/#example-landing-page), where the views are "behind" the LDES "landing" page. But a LDES is not a landing page and its views are directly accessible. Therefore, a data publisher might relate a `dcat:Distribution` per LDES view and set its `dcat:downloadURL` to the LDES view (root) node, which boils down to [this](https://www.w3.org/TR/vocab-dcat-3/#a-dataset-available-as-download-and-behind-some-web-page) scenario. You could argue that the root node only returns a portion of the data set, so again this scenario is a partial match. Probably most data publishers will therefore create a `dcat:Distribution` per LDES view and set the `dcat:accessURL` to the LDES view URL directly and set the `dcat:accessService` predicate to a `dcat:DataService`, which has its `dcat:endpointURL` also set to the LDES view URL.
+Technically, LDES does not define an API, therefore a data publisher might use the `dcat:accessURL` predicate on `dcat:Distribution` to refer to the LDES itself, from where the views can be discovered, which all provide the same data set but organized differently. The idea is similar to [this](https://www.w3.org/TR/vocab-dcat-3/#example-landing-page), where the views are "behind" the LDES "landing" page. But an LDES is not a landing page and its views are directly accessible. Therefore, a data publisher might relate a `dcat:Distribution` per LDES view and set its `dcat:downloadURL` to the LDES view (root) node, which boils down to [this](https://www.w3.org/TR/vocab-dcat-3/#a-dataset-available-as-download-and-behind-some-web-page) scenario. You could argue that the root node only returns a portion of the data set, so again this scenario is a partial match. Probably most data publishers will therefore create a `dcat:Distribution` per LDES view and set the `dcat:accessURL` to the LDES view URL directly and set the `dcat:accessService` predicate to a `dcat:DataService`, which has its `dcat:endpointURL` also set to the LDES view URL.
 
 This is the _current recommendation_ until the TREE and LDES specifications contain final DCAT requirements.
 
@@ -48,12 +48,12 @@ disney:default-distribution a dcat:Distribution ;
 disney:default-view a tree:Node, dcat:DataService ;
   dcat:endpointURL disney:default-view .
 ```
-This may need a bit of explanation. Basically, we have defined a catalog named `ex:catalog` that has a data set `ex:DisneyFeed`, which is doubled typed to a LDES and a data set. The event stream conforms to LDES and has a distribution named `disney:default-distribution` and a view named `disney:default-view`, which is both an identifier (URI) and a locator (URL). The distribution has both its direct access URL set to the view URL and refers to the view as its access service, which is the 'API' allowing access to the data set. Finally, our view is both a (starting) node as well as a data service, which endpoint is, of course, the view URL.
+This may need a bit of explanation. Basically, we have defined a catalog named `ex:catalog` that has a data set `ex:DisneyFeed`, which is doubled typed to an LDES and a data set. The event stream conforms to LDES and has a distribution named `disney:default-distribution` and a view named `disney:default-view`, which is both an identifier (URI) and a locator (URL). The distribution has both its direct access URL set to the view URL and refers to the view as its access service, which is the 'API' allowing access to the data set. Finally, our view is both a (starting) node as well as a data service, which endpoint is, of course, the view URL.
 
 > [!IMPORTANT]
 > Both the _TREE and LDES specifications are a living standard_ and do not (yet) define exactly how the LDES metadata should look like. However, they _are_ both _compatible with DCAT_.
 > 
-> For the time being, the recommended way to expose metadata for a LDES is to _map the LDES to a dataset and a view to a data service_ and relate them using a distribution, and finally, put all of these DCAT resources in a catalog. After that, you provide the endpoint containing the catalog to a metadata service so that a data client can discover the available LDES'es.
+> For the time being, the recommended way to expose metadata for an LDES is to _map the LDES to a dataset and a view to a data service_ and relate them using a distribution, and finally, put all of these DCAT resources in a catalog. After that, you provide the endpoint containing the catalog to a metadata service so that a data client can discover the available LDES'es.
 
 ---
 <p align="right">Next: <a href="Q-replicate-and-sync.md">LDES Replication & Synchronization</a></p>
