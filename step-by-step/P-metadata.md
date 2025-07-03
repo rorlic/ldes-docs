@@ -30,7 +30,7 @@ Example LDES metadata (without the LDES details and minimal DCAT):
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:        <http://example.org/> .
-@prefix disney:    <http://example.org/disney/> .
+@prefix disney:    <http://example.org/DisneyFeed/> .
 @prefix dcat:      <http://www.w3.org/ns/dcat#> .
 
 ex:catalog a dcat:Catalog

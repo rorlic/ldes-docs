@@ -27,7 +27,7 @@ The LDES specification defines a `ldes:versionAmount` predicate specifying an am
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:        <http://example.org/> .
-@prefix disney:    <http://example.org/disney/> .
+@prefix disney:    <http://example.org/DisneyFeed/> .
 
 ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
@@ -55,7 +55,7 @@ To implement this policy we simply set the `ldes:versionAmount` to one.
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:        <http://example.org/> .
-@prefix disney:    <http://example.org/disney/> .
+@prefix disney:    <http://example.org/DisneyFeed/> .
 
 ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;

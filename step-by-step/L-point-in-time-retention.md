@@ -19,7 +19,7 @@ Technically speaking, the absolute timestamp could be a value in the future and 
 @prefix dct:       <http://purl.org/dc/terms/> .
 @prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:        <http://example.org/> .
-@prefix disney:    <http://example.org/disney/> .
+@prefix disney:    <http://example.org/DisneyFeed/> .
 
 ex:DisneyFeed a ldes:EventStream ;
   tree:shape [ a sh:NodeShape; sh:targetClass schema:Person ] ;
