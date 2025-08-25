@@ -58,5 +58,8 @@ Enter LDES.
 |can use caching (immutable pages)<br>to handle many clients|is not rate limited|
 |does not need to maintain different API versions|does not need to keep up to date<br>with API changes|
 
+> [!TIP]
+> If you want to understand the rationale for LDES in more details, see Pieter Colpaert's article [Escaping the false dichotomy of API vs. data dump with Linked Data Event Streams](https://pietercolpaert.be/ldes/2021/09/03/ldes). He is the driving force behind LDES.
+
 ---
 <p align="right">Next: <a href="B-what-is-ldes.md">What is LDES?</a></p>
